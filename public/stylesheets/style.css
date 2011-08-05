@@ -1,0 +1,195 @@
+/**** RESET ****/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	color: #333;
+	
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/******** END RESET ***********/
+
+
+/*
+CLEARFIX
+*/
+/* clear float rules defined early so they won't accidentally overwrite other possible declarations */
+
+/* for modern browsers */
+.clearfix:after {    clear: both;    content: "'";   display: block;    font-size: 0; /* fix FF bug */    height: 0; overflow: hidden; visibility: hidden;}
+/* for IE7 */
+.clearfix {min-height: 0;}
+/* for IE<7 \*/
+* html .clearfix { height: 1%;}
+/* for IE-mac (snicker) */
+/*\*//*/ .clearfix { display: inline-table; } /**/
+
+body {
+text-align: center;
+background:#fff;
+font: normal 14px Helvetica Neue,Arial,Sans-serif; 
+line-height: 18px;
+
+}
+
+small{font-size: 10px;}
+big{font-size: 18px; line-height: 22px;}
+.light{color: #ccc;}
+a.light{color: #86b8db;}
+
+
+a{text-decoration: none; color: #1c6ca4;}
+a:hover{text-decoration: underline;}
+
+.positioned{position: relative;}
+/*
+a img{border: 1px solid #740978;}
+a img:hover{border: 1px solid #1c6ca4;}
+*/
+p{padding: 0 0 10px 0;}
+/*** Structure ****/
+
+.wrapper {
+width: 900px;
+position: relative;
+overflow: visible; 
+margin: 0em auto;
+text-align: left;
+background-color: transparent;
+margin-top: 0px;
+padding: 10px 0;
+}
+
+input[type="text"], input[type="email"], input[type="password"]{
+	font-family: Arial, Sans-Serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 5px;
+    border: solid 1px #aaa;
+    width: 250px;
+	border-radius:5px;
+}
+
+#home input[type="text"], #home input[type="email"], #home input[type="password"]{
+	padding: 10px;
+    width: 300px;
+	display: block;
+}
+
+input[type="button"], input[type="submit"], a.button{
+		font-family: Arial, Sans-Serif;
+	    margin-bottom: 5px;
+	    display: inline-block;
+	    padding: 5px;
+		font-size: 15px;
+		font-weight:bold;
+		border-radius:5px;
+	    border: solid 1px #aaa;
+		color: #333;
+		background:url('/images/button-bg.jpg') repeat-x;
+
+	    width: 100px;
+		cursor:pointer;
+	}
+
+	#home input[type="button"],#home input[type="submit"], #home a.button{
+		margin: 5px 0;
+			display: block;
+			padding: 10px;
+			font-size: 20px;
+			font-weight:bold;
+			width: 300px;
+			
+		}
+	a.button{text-align:center; }
+
+
+input[type="button"]:hover,input[type="submit"]:hover{
+	background:url('/images/button-bg-hover.jpg');
+}
+
+textarea{width: 70%; height: 120px}
+
+
+/* GENERAL STYLES */
+h1{font-size: 30px; font-weight: bold; color: #606B79; display:block; line-height: 34px;margin: 0 0 10px 0;}
+
+h2{font-size: 24px; line-height: 28px; font-weight: bold; margin-bottom: 10px;}
+
+label{font-weight:bold;}
+
+.tutorial p{font-size:18px; line-height: 20px;}
+
+form{padding: 10px; border: 1px solid #ddd; background-color: #f3f3f3; margin-bottom: 10px; border-radius: 5px}
+form .field{padding: 0 0 10px 0;}
+
+#home form{padding:0; border: 0; background:transparent	}
+
+/* HEADER STUFFS */
+#header, #main{text-align:left;}
+
+#header{ background-color: #96A7AA; height: 82px; background-position:bottom;}
+#header h1 a{font-size: 50px; font-family:'Century Gothic'; line-height: 55px; color: #282828;}
+#alert{position:fixed; top: 0; background:#ffa200; z-index:1000; width:100%; display: none;padding: 5px 0;border-bottom: 2px solid #6f0909; color: #6f0909;}
+
+#about, #signin{margin-top: 50px;}
+#about{float:left; width: 450px;margin-right: 100px;}
+#about strong{color: #333; font-size: 50px;line-height: 54px;display:block;}
+#about span{color: #7f5e5e; font-size: 20px; line-height: 24px; margin: 20px 0;display:block; }
+#about span b{color: #720e0e;}
+#signin{float:left; border-radius: 5px; border: 3px solid #ccc;  background-color: #ddd; padding: 10px; text-align:left;}
+
+#identity{color: #fff;position:absolute; right: 0; top: 10px;}
+#identity a{color: #282828;}
+
+#menu{background-color: #282828}
+#menu li{display:inline-block}
+#menu a {color: #fff; text-transform: uppercase; margin-right: 20px;}
+#menu a {color: #fff; text-transform: uppercase; margin-right: 20px;}
+
+table{width: 100%;border-bottom: 1px solid #ccc}
+table th{background-color: #606B79; color: #fff; font-weight: bold; padding: 5px 10px ;}
+table td{padding: 5px 10px;}
+table .zebra td{background-color: #eee;}
+
+
+#survey_answers{padding: 10px; border-radius:5px; background:#eee; border: 1px solid #ccc; margin-bottom: 10px}

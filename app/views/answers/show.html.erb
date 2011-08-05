@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Survey:</b>
+  <%= @answer.survey_id %>
+</p>
+
+<p>
+  <b>As image:</b>
+  <%= @answer.as_image %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @answer.content %>
+</p>
+
+<p>
+  <b>Pic file name:</b>
+  <%= @answer.pic_file_name %>
+</p>
+
+<p>
+  <b>Pic content type:</b>
+  <%= @answer.pic_content_type %>
+</p>
+
+<p>
+  <b>Pic file size:</b>
+  <%= @answer.pic_file_size %>
+</p>
+
+<p>
+  <b>Pic updated at:</b>
+  <%= @answer.pic_updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

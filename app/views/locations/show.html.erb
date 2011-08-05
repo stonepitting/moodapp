@@ -1,0 +1,12 @@
+<h1>
+	<%= @location.name %>
+</h1>
+
+<p>
+  <b>Enabled:</b>
+  <%= @location.enabled %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location), :class => 'button' %> |
+<%= link_to 'Back', locations_path %>

@@ -1,0 +1,23 @@
+<h1><%= @survey.name %></h1>
+<h2><%= @survey.question %></h2>
+<p>
+  <b>Description:</b>
+  <%= @survey.description %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%= @survey.enabled %>
+</p>
+
+
+<div id="survey_answers">
+	
+<%= render :template => 'answers/index'%>
+
+</div>
+
+
+
+<%= link_to 'Edit', edit_survey_path(@survey), :class => 'button' %> |
+<%= link_to 'Back', surveys_path %>

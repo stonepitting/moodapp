@@ -1,0 +1,24 @@
+<h1>MoodApp</h1>
+
+<div id="home">
+	<div id="about">
+		<strong>
+			Track your engagement
+		</strong>
+		<span>
+			MoodApp allows you to track user engagement.
+		</span>
+		<%= link_to('Register', new_user_registration_path, :class => 'button')  %>
+	</div>	
+	<div id="signin">
+			<%= form_for("user", :url => user_session_path) do |f| %>
+			  <%= f.text_field :email, :value => 'Email', :onfocus => 'this.value="";' %>
+			  <%= f.text_field :password, :value => 'Password', :onfocus => 'this.value="";this.type="password"' %>
+			  <%= f.check_box :remember_me %>
+			  <%= f.label :remember_me %>
+			  <%= f.submit 'Sign in' %>
+			  <%= link_to "Forgot your password?", new_password_path('user') %>
+			<% end %>
+		
+	</div>
+</div>

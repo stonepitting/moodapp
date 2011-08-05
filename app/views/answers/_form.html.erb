@@ -1,0 +1,33 @@
+<%= form_for @answer, :html => { :multipart => true } do |f| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% @answer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+    <%= f.label :order %><br />
+    <%= f.text_field :order %>
+  </div>
+  <%= f.hidden_field :survey_id %>
+  <div class="field">
+    <%= f.label :as_image %><br />
+    <%= f.check_box :as_image %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :pic, 'Picture' %><br />
+    <%= f.file_field :pic %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save', :class => 'button' %>
+  </div>
+<% end %>

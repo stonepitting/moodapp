@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moodapp</title>
+  <%= stylesheet_link_tag 'style' %>
+  <%= javascript_include_tag 'jquery', 'jquery_ujs', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<% if notice || alert %>
+		<div id="alert">
+			<%= notice %>
+		    <%= alert %>
+		</div>
+		
+		<script type="text/javascript">
+		$('#alert').fadeIn().delay(5000).fadeOut();
+		</script>
+	<% end %>
+	<div id="header">
+		<div class="wrapper">
+			<% if user_signed_in? %>
+			<div id="identity">
+				<%=current_user.email%> | 
+				<%= link_to('Logout', destroy_user_session_path) %>
+				
+			</div>
+			<% end %>
+			<h1><a href="/"><strong>MoodApp.</strong></a></h1>
+		</div>
+		
+	</div>
+	<% if user_signed_in?%>
+	<div id="menu">
+		<div class="wrapper">
+			<ul>
+				<li><%=link_to 'Locations', locations_path%></li>
+				<li><%=link_to 'Surveys', surveys_path%></li>
+
+			</ul>
+		</div>
+	</div>
+	<% end %>
+	<div class="wrapper">
+		<%= yield %>
+	</div>
+
+</body>
+</html>
