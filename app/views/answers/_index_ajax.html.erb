@@ -1,0 +1,5 @@
+<ul>
+	<% @answers.each do |a| %>
+	<li><%=link_to a.content, vote_location_path(@location.id, :answer_id => a.id), :onclick => "return vote(#{@location.id}, #{a.id});" %></li>
+	<% end %>
+</ul>

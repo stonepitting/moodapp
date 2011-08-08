@@ -1,12 +1,27 @@
 class AnswersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
   # GET /answers
   # GET /answers.xml
   def index
-    @answers = Answer.all
+    cond = {}
+    
+    if params[:survey_id]
+      cond = {:survey_id => params[:survey_id]}
+    end
+    if params[:location_id]
+      @location = Location.find(params[:location_id])
+      @survey = @location.survey
+      cond = {:survey_id => @survey.id}
+    end
+    @answers = Answer.all(:conditions => cond)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @answers }
+    if request.xhr?
+      render :partial => 'index_ajax'
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @answers }
+      end
     end
   end
 

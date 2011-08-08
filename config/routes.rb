@@ -1,4 +1,6 @@
 Moodapp::Application.routes.draw do
+  resources :votes
+
   resources :answers
 
   resources :surveys
@@ -12,7 +14,16 @@ Moodapp::Application.routes.draw do
   resources :surveys do
     resources :answers
     member do
+      get 'stats'
+      post 'stats'
+    end
+  end
+  
+  resources :locations do
+    resources :answers
+    member do
       get 'public'
+      get 'vote'
     end
   end
 

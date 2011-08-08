@@ -10,7 +10,7 @@
   <%= @survey.enabled %>
 </p>
 
-
+<p><%=link_to 'Check the stats', stats_survey_path(@survey)%></p>
 <div id="survey_answers">
 	
 <%= render :template => 'answers/index'%>

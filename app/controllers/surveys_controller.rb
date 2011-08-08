@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_user!, :except => [:public]
+  before_filter :authenticate_user!
   # GET /surveys
   # GET /surveys.xml
   def index
@@ -26,12 +26,29 @@ class SurveysController < ApplicationController
     end
   end
   
-  def public
+  # Get and display stats
+  
+  def stats
     @survey = Survey.find(params[:id])
+    if params[:date]
+      @date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
+      @votes = @survey.votes.where("YEAR(created_at) = ? and MONTH(created_at) = ?", params[:date][:year], params[:date][:month]).group('answer_id')
+      
+    else
+      @votes = @answers.votes
+    end
     @answers = @survey.answers
-    render :layout => 'public_layout'
+    
+    if request.xhr?
+      
+      render :partial => 'stats_ajax'
+    else
+      
+    end
+    
+    
   end
-
+  
   # GET /surveys/new
   # GET /surveys/new.xml
   def new

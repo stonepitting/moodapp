@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:public, :vote]
   # GET /locations
   # GET /locations.xml
   def index
@@ -23,6 +23,32 @@ class LocationsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @location }
     end
+  end
+  
+  #public url displaying the survey
+  def public
+    @location = Location.find(params[:id])
+    @survey = @location.survey
+    @answers = @survey.answers
+    render :layout => 'public_layout'
+  end
+  
+  #register a vote
+  def vote
+    location = Location.find(params[:id])
+    answer = Answer.find(params[:answer_id])
+    survey = location.survey
+    vote = Vote.new({:survey_id => survey.id, :location_id => location.id, :answer_id => answer.id, :ip => request.remote_ip})
+    vote.save
+    location.increment(:votes_count)
+    location.save
+    answer.increment(:votes_count)
+    answer.save
+    survey.increment(:votes_count)
+    survey.save
+    
+    head :ok
+    
   end
 
   # GET /locations/new

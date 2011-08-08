@@ -1,0 +1,38 @@
+<div id="content">
+	<h1><%=@survey.question%></h1>
+	<div id="ajax-div">
+		
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	//$('#ajax-div').load();
+	loadAnswers();
+});
+
+function loadAnswers(){
+	$.ajax({
+	  url: '/locations/<%=@location.id%>/answers',
+	  success: function(data) {
+	    $('#ajax-div').html(data);
+	  },
+	  beforeSend: function(data) {
+	    $('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
+	  }
+	});
+}
+
+function vote(location_id, answer_id){
+	$.ajax({
+	  url: '/locations/' + location_id + '/vote',
+	  data: 'answer_id=' + answer_id,
+	  success: function(data) {
+	    loadAnswers();
+	  },
+	  beforeSend: function(data) {
+	    $('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
+	  }
+	});
+	return false;
+}
+</script>
