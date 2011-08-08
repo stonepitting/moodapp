@@ -11,6 +11,9 @@ Moodapp::Application.routes.draw do
   
   resources :surveys do
     resources :answers
+    member do
+      get 'public'
+    end
   end
 
   # The priority is based upon order of creation:

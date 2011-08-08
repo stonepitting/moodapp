@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:public]
   # GET /surveys
   # GET /surveys.xml
   def index
@@ -24,6 +24,12 @@ class SurveysController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @survey }
     end
+  end
+  
+  def public
+    @survey = Survey.find(params[:id])
+    @answers = @survey.answers
+    render :layout => 'public_layout'
   end
 
   # GET /surveys/new

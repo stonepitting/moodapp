@@ -1,0 +1,8 @@
+<div>
+	<h1><%=@survey.question%></h1>
+	<ul>
+		<% @answers.each do |a| %>
+		<li><%=link_to a.content, a %></li>
+		<% end %>
+	</ul>
+</div>
