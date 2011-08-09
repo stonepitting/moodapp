@@ -1,6 +1,25 @@
 <h1>
 	<%= @location.name %>
 </h1>
+<%= link_to 'Edit', edit_location_path(@location), :class => 'button' %>
+
+<% if !@location.survey %>
+	<p class="warning">
+		Watch out, you don't have a survey linked to this location.
+	</p>
+<% else %>
+<h2>Survey: <%=link_to @location.survey.name, @location.survey %></h2>
+<% end %>
+
+<p>
+	Use the URL below to display a survey in a particular location.
+</p>
+<p>
+	Use it in your iPad to display the survey linked to the location on the screen.
+</p>
+<p>
+<%=link_to 'Preview', public_location_path(@location), :target => '_blank'%> | URL: <input type="text" value="<%=public_location_path(@location, :only_path => false)%>" onclick="this.select();" />
+</p>
 
 <p>
   <b>Enabled:</b>
@@ -8,5 +27,3 @@
 </p>
 
 
-<%= link_to 'Edit', edit_location_path(@location), :class => 'button' %> |
-<%= link_to 'Back', locations_path %>

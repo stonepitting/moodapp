@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808092531) do
+ActiveRecord::Schema.define(:version => 20110809091905) do
 
   create_table "answers", :force => true do |t|
     t.integer  "survey_id"
@@ -41,11 +41,14 @@ ActiveRecord::Schema.define(:version => 20110808092531) do
     t.string   "name"
     t.string   "question"
     t.text     "description"
-    t.boolean  "enabled",     :default => true
+    t.boolean  "enabled",               :default => true
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "votes_count", :default => 0
+    t.integer  "votes_count",           :default => 0
+    t.boolean  "display_stats",         :default => true
+    t.integer  "votes_before_stats",    :default => 10
+    t.integer  "stats_default_history", :default => 7
   end
 
   create_table "users", :force => true do |t|

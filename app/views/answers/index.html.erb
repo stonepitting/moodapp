@@ -1,21 +1,22 @@
-<h1>Listing answers</h1>
+<h1>Possible answers</h1>
 
+<% if @answers.size > 0 %>
 <table>
   <tr>
-    <th>Survey</th>
-    <th>As image</th>
-    <th>Content</th>
+    <th>Text</th>
+    <th>Use the picture</th>
+	<th>Picture</th>
     <th>Order</th>
     <th></th>
   </tr>
 
 <% @answers.each do |answer| %>
   <tr>
-    <td><%= answer.survey_id %></td>
-    <td><%= answer.as_image %></td>
     <td><%= answer.content %></td>
+    <td><%= answer.as_image %></td>
+	<td><%= image_tag(answer.pic.url(:thumb)) if answer.pic_file_name %></td>
     <td><%= answer.order %></td>
-    <td>
+    <td class="actions">
 		<%= link_to 'Show', answer %>
 		<%= link_to 'Edit', edit_answer_path(answer) %>
 		<%= link_to 'Destroy', answer, :confirm => 'Are you sure?', :method => :delete %>
@@ -25,5 +26,10 @@
 </table>
 
 <br />
+<%else%>
+<p>
+You haven't set up any answer yet.
+</p>
 
+<% end %>
 <%= link_to 'New Answer', new_survey_answer_path(@survey.id), :class => 'button' %>

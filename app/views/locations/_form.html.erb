@@ -15,12 +15,16 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-<% if @surveys.size > 0 %>
+
 <div class="field">
     <%= f.label :survey_id, 'Survey to display' %><br />
-    <%= f.text_field :survey_id %>
-  </div>
+<% if @surveys.size > 0 %>
+	<%= select("location", "survey_id", @surveys.collect {|s| [ s.name, s.id ] }, {:include_blank => 'None'})%>
+<% else %>
+	You don't have any survey. <%= link_to "Add one", new_survey_path %> first.
 <% end %>
+  </div>
+
   <div class="field">
     <%= f.label :enabled %><br />
     <%= f.check_box :enabled %>

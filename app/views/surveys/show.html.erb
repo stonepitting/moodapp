@@ -1,8 +1,9 @@
 <h1><%= @survey.name %></h1>
 <h2><%= @survey.question %></h2>
+<%= link_to 'Edit', edit_survey_path(@survey), :class => 'button' %>
 <p>
   <b>Description:</b>
-  <%= @survey.description %>
+  <%= @survey.description  %>
 </p>
 
 <p>
@@ -19,5 +20,4 @@
 
 
 
-<%= link_to 'Edit', edit_survey_path(@survey), :class => 'button' %> |
-<%= link_to 'Back', surveys_path %>
+

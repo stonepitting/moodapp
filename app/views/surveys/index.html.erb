@@ -16,8 +16,7 @@
     <th>Name</th>
     <th>Description</th>
     <th>Enabled</th>
-    <th></th>
-    <th></th>
+    <th>Votes</th>
     <th></th>
   </tr>
 
@@ -26,9 +25,13 @@
     <td><%= survey.name %></td>
     <td><%= survey.description %></td>
     <td><%= survey.enabled %></td>
-    <td><%= link_to 'Show', survey %></td>
-    <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-    <td><%= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= survey.votes_count%></td>
+    <td class="actions">
+		<%= link_to 'Show', survey %>
+		<%= link_to 'Edit', edit_survey_path(survey) %>
+		<%= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete %>
+	</td>
+		
   </tr>
 <% end %>
 </table>

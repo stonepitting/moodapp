@@ -24,6 +24,7 @@ Moodapp::Application.routes.draw do
     member do
       get 'public'
       get 'vote'
+      get 'stats'
     end
   end
 

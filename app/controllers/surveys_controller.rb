@@ -30,12 +30,15 @@ class SurveysController < ApplicationController
   
   def stats
     @survey = Survey.find(params[:id])
+    @votes = []
     if params[:date]
       @date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
       @votes = @survey.votes.where("YEAR(created_at) = ? and MONTH(created_at) = ?", params[:date][:year], params[:date][:month]).group('answer_id')
       
     else
-      @votes = @answers.votes
+      if @answers
+        @votes = @answers.votes
+      end
     end
     @answers = @survey.answers
     
@@ -69,7 +72,7 @@ class SurveysController < ApplicationController
   # POST /surveys.xml
   def create
     @survey = Survey.new(params[:survey])
-    @location.survey = current_user
+    @survey.user = current_user
     respond_to do |format|
       if @survey.save
         format.html { redirect_to(@survey, :notice => 'Survey was successfully created.') }

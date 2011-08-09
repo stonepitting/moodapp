@@ -16,7 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :question %><br />
+    <%= f.label :question, 'Title of the question' %><br />
+	<em><small>This is the title that will be displayed in the survey page.</small></em><br />
     <%= f.text_field :question %>
   </div>
 <div class="field">
@@ -24,10 +25,22 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
+    
+    <%= f.check_box :enabled %> <%= f.label :enabled %>
   </div>
+	<div class="field">
+    <%= f.check_box :display_stats %>
+	<%= f.label :display_stats,'Display stats after votes' %>
+  </div>
+	<div class="field">
+	    <%= f.label :votes_before_stats, 'Number of votes before displaying stats' %><br />
+	    <%= f.text_field :votes_before_stats %>
+	  </div>
+	<div class="field">
+	    <%= f.label :stats_default_history, 'Number of days taken in account for the stats' %><br />
+	    <%= f.text_field :stats_default_history %>
+	  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save' %>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:public, :vote]
+  before_filter :authenticate_user!, :except => [:public, :vote, :stats]
   # GET /locations
   # GET /locations.xml
   def index
@@ -7,17 +7,28 @@ class LocationsController < ApplicationController
     if @locations.size == 0
       @location = Location.new
     end
+    @surveys = Survey.all
     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @locations }
     end
   end
+  
+  def stats
+    @location = Location.find(params[:id])
+    @survey = @location.survey
+    @answers = @survey.answers
+    history_date = Date.today - @survey.stats_default_history.days
+    @votes = @survey.votes.where("created_at > ?", history_date).group('answer_id')
+    render :layout => false
+  end
 
   # GET /locations/1
   # GET /locations/1.xml
   def show
     @location = Location.find(params[:id])
+    @surveys = Survey.all
 
     respond_to do |format|
       format.html # show.html.erb

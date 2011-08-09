@@ -12,19 +12,23 @@
   <% end %>
 <div class="field">
     <%= f.label :order %><br />
+	<small><em>Use this to specify the order in which answers should be displayed. Put 1, 2, 3...</em></small><br />
     <%= f.text_field :order %>
   </div>
   <%= f.hidden_field :survey_id %>
   <div class="field">
-    <%= f.label :as_image %><br />
-    <%= f.check_box :as_image %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content, 'Answer text' %><br />
+	<small><em>This text will be displayed as a clickable button in the survey</em></small><br />
     <%= f.text_field :content %>
   </div>
   <div class="field">
+    <%= f.label :as_image, 'Picture settings' %><br />
+	<small><em>Check this if you wish to use the picture instead of the text</em></small><br />
+    <%= f.check_box :as_image %> Use the picture
+  </div>
+<div class="field">
     <%= f.label :pic, 'Picture' %><br />
+	<small><em>Picture that should be displayed for this answer</em></small><br />
     <%= f.file_field :pic %>
   </div>
   <div class="actions">

@@ -35,4 +35,8 @@ function vote(location_id, answer_id){
 	});
 	return false;
 }
+
+function loadStats(location_id){
+	$('#ajax-div').load('/locations/'+location_id+'/stats');
+}
 </script>
