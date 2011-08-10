@@ -51,18 +51,21 @@ body{
 	background: #000;
 	color: #fff;
 	font: normal 2em Helvetica Neue,Arial,Sans-serif; 
-	line-height: 2em;
+	line-height: 1em;
 	text-align: center;
 	
 	
 }
 
-#content{position:absolute; top: 50%;width: 100%; margin-top: -25%;}
+#content{position:absolute; top: 50%;width: 100%; height: 300px; margin-top:-150px}
 
 
 h1{color: #fff; font-size: 2em; line-height: 1em}
 
 #ajax-div{margin-top: 100px}
 li{display: inline-block; }
-li a{display:inline-block;border-radius:20px; border: 5px solid #fff; padding: 10px 20px; background-color: #aaa; margin: 0 10px; color: #fff; text-decoration: none}
+li a{display:inline-block;border-radius:20px; border: 5px solid #fff; padding: 30px 20px; position:relative; bottom: 30px; background-color: #aaa; margin: 0 10px; color: #fff; text-decoration: none}
 li a:hover{background-color: #666;}
+li a.vote-img{ background: transparent; padding: 0; margin: 0; line-height: auto; border:0;  border-radius: 0;line-height:0em; bottom: -5px}
+li a.vote-img img{height:100px; padding: 0; margin:0;}
+li a.vote-img:hover{border: 0; background: transparent}

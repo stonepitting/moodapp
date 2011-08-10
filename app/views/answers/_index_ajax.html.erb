@@ -1,5 +1,11 @@
 <ul>
 	<% @answers.each do |a| %>
-	<li><%=link_to a.content, vote_location_path(@location.id, :answer_id => a.id), :onclick => "return vote(#{@location.id}, #{a.id});" %></li>
+	<li>
+		<% if a.as_image && a.pic_file_name %>
+			<%=link_to image_tag(a.pic.url(:medium)), vote_location_path(@location.id, :answer_id => a.id), :class => 'vote-img', :onclick => "return vote(#{@location.id}, #{a.id});" %>
+		<% else %>
+			<%=link_to a.content, vote_location_path(@location.id, :answer_id => a.id), :onclick => "return vote(#{@location.id}, #{a.id});" %>
+		<% end %>
+	</li>
 	<% end %>
 </ul>

@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   # index page
   def index
     if user_signed_in?
-      redirect_to dashboard_path()
+      redirect_to locations_path()
     end
   end
   

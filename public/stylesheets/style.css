@@ -169,7 +169,7 @@ form .field{padding: 0 0 10px 0;}
 
 #header{ background-color: #96A7AA; height: 82px; background-position:bottom;}
 #header h1 a{font-size: 50px; font-family:'Century Gothic'; line-height: 55px; color: #282828;}
-#alert{position:fixed; top: 0; background:#ffa200; z-index:1000; width:100%; display: none;padding: 5px 0;border-bottom: 2px solid #6f0909; color: #6f0909;}
+#alert{position:fixed; top: 0; background:#ffa200; z-index:1000; width:100%; display: none;padding: 5px 0; color: #6f0909;}
 
 #about, #signin{margin-top: 50px;}
 #about{float:left; width: 450px;margin-right: 100px;}

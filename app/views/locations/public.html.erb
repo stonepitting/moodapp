@@ -3,6 +3,7 @@
 	<div id="ajax-div">
 		
 	</div>
+
 </div>
 <script type="text/javascript">
 $(function(){
@@ -27,7 +28,8 @@ function vote(location_id, answer_id){
 	  url: '/locations/' + location_id + '/vote',
 	  data: 'answer_id=' + answer_id,
 	  success: function(data) {
-	    loadAnswers();
+	    //loadStats(location_id);
+		loadAnswers();
 	  },
 	  beforeSend: function(data) {
 	    $('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
@@ -37,6 +39,17 @@ function vote(location_id, answer_id){
 }
 
 function loadStats(location_id){
-	$('#ajax-div').load('/locations/'+location_id+'/stats');
+	//$('#ajax-div').load('/locations/'+location_id+'/stats');
+	console.log('starting...');
+	$.ajax({
+	  url: '/locations/' + location_id + '/stats',
+	  dataType: 'html',
+	  success: function(data) {
+		console.log('success..');
+		console.log('data');
+	     eval(data);
+		console.log("Data "+data);
+	  }
+	});
 }
 </script>

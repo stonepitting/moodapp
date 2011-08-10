@@ -26,7 +26,7 @@
 
 <% @locations.each do |location| %>
   <tr>
-    <td><%= location.name %></td>
+    <td><%= link_to location.name, location %></td>
     <td><%= location.enabled %></td>
     <td>
 		<% if location.survey %>
@@ -36,7 +36,6 @@
 		<% end %>
 	</td>
     <td class="actions">
-		<%= link_to 'Show', location %>
 		<%= link_to 'Edit', edit_location_path(location) %>
 		<%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %>
 	</td>

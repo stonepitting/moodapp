@@ -4,20 +4,21 @@
 <table>
   <tr>
     <th>Text</th>
-    <th>Use the picture</th>
+    <th>Votes</th>
+	<th>Use the picture</th>
 	<th>Picture</th>
-    <th>Order</th>
+	<th>Order</th>
     <th></th>
   </tr>
 
 <% @answers.each do |answer| %>
   <tr>
-    <td><%= answer.content %></td>
+	<td><%= answer.content %></td>
+	<td><%= answer.votes_count %></td>
     <td><%= answer.as_image %></td>
 	<td><%= image_tag(answer.pic.url(:thumb)) if answer.pic_file_name %></td>
     <td><%= answer.order %></td>
     <td class="actions">
-		<%= link_to 'Show', answer %>
 		<%= link_to 'Edit', edit_answer_path(answer) %>
 		<%= link_to 'Destroy', answer, :confirm => 'Are you sure?', :method => :delete %>
 	</td>
