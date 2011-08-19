@@ -62,7 +62,7 @@ body{
 
 h1{color: #fff; font-size: 2em; line-height: 1em}
 
-#ajax-div{margin-top: 100px}
+#ajax-div{margin-top: 200px}
 li{display: inline-block; }
 li a{display:inline-block;border-radius:20px; border: 5px solid #fff; padding: 30px 20px; position:relative; bottom: 30px; background-color: #aaa; margin: 0 10px; color: #fff; text-decoration: none}
 li a:hover{background-color: #666;}

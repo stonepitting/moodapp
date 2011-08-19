@@ -36,11 +36,14 @@ class SurveysController < ApplicationController
       @votes = @survey.votes.where("YEAR(created_at) = ? and MONTH(created_at) = ?", params[:date][:year], params[:date][:month]).group('answer_id')
       
     else
+      @answers = @survey.answers
       if @answers
-        @votes = @answers.votes
+        @votes = @answers.votes.group('answer_id')
       end
     end
-    @answers = @survey.answers
+    
+    puts '-------------------------------------'
+    puts @votes.inspect
     
     if request.xhr?
       

@@ -8,9 +8,18 @@
 	"buffers":
 	[
 		{
+			"file": "/Users/spittet/Sites/ror/arbalet/app/views/pages/_form.html.erb",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1161,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 764,
 				"line_ending": "Unix"
 			}
 		}
@@ -38,12 +47,36 @@
 	},
 	"file_history":
 	[
+		"/Users/spittet/Sites/ror/arbalet/public/javascripts/application.js",
+		"/Users/spittet/Sites/ror/arbalet/app/views/pages/edit.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/controllers/pages_controller.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/models/box.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/controllers/page_boxes_controller.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/home/dashboard.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/home/_dashboard.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/controllers/boxes_controller.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/apps/code.js.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/controllers/apps_controller.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/apps/no_code.js.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/apps/_show_ajax.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/page_boxes/show.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/config/routes.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/boxes/miniform.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/layouts/mini.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/public/stylesheets/mini.style.css",
+		"/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
+		"/Users/spittet/Sites/ror/arbalet/app/views/apps/_settings.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/boxes/minicreated.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/public/javascripts/jquery.min.js",
+		"/Users/spittet/Sites/ror/arbalet/public/javascripts/jquery_ujs.js",
+		"/Users/spittet/Sites/ror/arbalet/app/models/app.rb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/panels/_form.html.erb",
 		"/Users/spittet/Sites/ror/moodapp/config/routes.rb",
 		"/Users/spittet/Sites/ror/moodapp/app/views/answers/index.html.erb"
 	],
 	"find":
 	{
-		"height": 0
+		"height": 33
 	},
 	"find_in_files":
 	{
@@ -60,6 +93,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"showPossi"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -84,27 +118,57 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "/Users/spittet/Sites/ror/arbalet/app/views/pages/_form.html.erb",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1161,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								433,
+								433
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 764,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								152,
+								152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
 						"translation.y": 0,
@@ -157,12 +221,88 @@
 		"selected_items":
 		[
 			[
-				"index",
-				"app/views/answers/index.html.erb"
+				"form",
+				"app/views/panels/_form.html.erb"
+			],
+			[
+				"pages",
+				"app/controllers/pages_controller.rb"
+			],
+			[
+				"jquery",
+				"public/javascripts/jquery_ujs.js"
+			],
+			[
+				"jquer",
+				"public/javascripts/jquery.min.js"
+			],
+			[
+				"apps",
+				"app/controllers/apps_controller.rb"
+			],
+			[
+				"mini",
+				"app/views/boxes/minicreated.html.erb"
 			],
 			[
 				"route",
 				"config/routes.rb"
+			],
+			[
+				"box",
+				"app/controllers/boxes_controller.rb"
+			],
+			[
+				"app",
+				"app/controllers/apps_controller.rb"
+			],
+			[
+				"boxes",
+				"app/controllers/boxes_controller.rb"
+			],
+			[
+				"settin",
+				"app/views/apps/_settings.html.erb"
+			],
+			[
+				"style",
+				"public/stylesheets/style.css"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"show",
+				"app/views/page_boxes/show.html.erb"
+			],
+			[
+				"pages_con",
+				"app/controllers/pages_controller.rb"
+			],
+			[
+				"page_boxes",
+				"app/controllers/page_boxes_controller.rb"
+			],
+			[
+				"edit",
+				"app/views/pages/edit.html.erb"
+			],
+			[
+				"das",
+				"app/views/home/_dashboard.html.erb"
+			],
+			[
+				"no_c",
+				"app/views/apps/no_code.js.erb"
+			],
+			[
+				"appli",
+				"public/javascripts/application.js"
+			],
+			[
+				"index",
+				"app/views/answers/index.html.erb"
 			]
 		],
 		"width": 0
