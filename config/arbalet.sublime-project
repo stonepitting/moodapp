@@ -19,7 +19,23 @@
 			"file": "/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
 			"settings":
 			{
-				"buffer_size": 764,
+				"buffer_size": 751,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
+			"settings":
+			{
+				"buffer_size": 6576,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/spittet/Downloads/fr.yml",
+			"settings":
+			{
+				"buffer_size": 37,
 				"line_ending": "Unix"
 			}
 		}
@@ -93,6 +109,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"text",
+			"textare",
+			"textarea",
 			"showPossi"
 		],
 		"highlight": true,
@@ -118,7 +137,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -154,21 +173,73 @@
 					"file": "/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
 					"settings":
 					{
-						"buffer_size": 764,
+						"buffer_size": 751,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								152,
-								152
+								470,
+								470
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
+					"settings":
+					{
+						"buffer_size": 6576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3382,
+								3382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 1732,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/spittet/Downloads/fr.yml",
+					"settings":
+					{
+						"buffer_size": 37,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage"
 						},
 						"translation.x": 0,
 						"translation.y": 0,
@@ -221,6 +292,10 @@
 		"selected_items":
 		[
 			[
+				"style",
+				"public/stylesheets/style.css"
+			],
+			[
 				"form",
 				"app/views/panels/_form.html.erb"
 			],
@@ -263,10 +338,6 @@
 			[
 				"settin",
 				"app/views/apps/_settings.html.erb"
-			],
-			[
-				"style",
-				"public/stylesheets/style.css"
 			],
 			[
 				"routes",
