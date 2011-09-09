@@ -199,3 +199,8 @@ blockquote{padding: 5px; border: 1px dashed #ccc; background-color: #eee}
 
 
 .warning{background-color: #FF282B; color: #fff; border-radius: 5px; padding:5px;margin: 0 0 10px 0}
+
+.survey{width: auto}
+.stat-block{background-color: #ccc; }
+.survey td {width: 50%; text-align:center}
+.survey {border: 0}

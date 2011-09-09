@@ -7,38 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/Users/spittet/Sites/ror/arbalet/app/views/pages/_form.html.erb",
-			"settings":
-			{
-				"buffer_size": 1161,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
-			"settings":
-			{
-				"buffer_size": 751,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
-			"settings":
-			{
-				"buffer_size": 6576,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/spittet/Downloads/fr.yml",
-			"settings":
-			{
-				"buffer_size": 37,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -63,6 +31,10 @@
 	},
 	"file_history":
 	[
+		"/Users/spittet/Sites/ror/arbalet/app/views/pages/_form.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
+		"/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
+		"/Users/spittet/Downloads/fr.yml",
 		"/Users/spittet/Sites/ror/arbalet/public/javascripts/application.js",
 		"/Users/spittet/Sites/ror/arbalet/app/views/pages/edit.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/app/controllers/pages_controller.rb",
@@ -80,7 +52,6 @@
 		"/Users/spittet/Sites/ror/arbalet/app/views/boxes/miniform.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/app/views/layouts/mini.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/public/stylesheets/mini.style.css",
-		"/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
 		"/Users/spittet/Sites/ror/arbalet/app/views/apps/_settings.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/app/views/boxes/minicreated.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/public/javascripts/jquery.min.js",
@@ -137,116 +108,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/Users/spittet/Sites/ror/arbalet/app/views/pages/_form.html.erb",
-					"settings":
-					{
-						"buffer_size": 1161,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								433,
-								433
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
-					"settings":
-					{
-						"buffer_size": 751,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								470,
-								470
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
-					"settings":
-					{
-						"buffer_size": 6576,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3382,
-								3382
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 1732,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/spittet/Downloads/fr.yml",
-					"settings":
-					{
-						"buffer_size": 37,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

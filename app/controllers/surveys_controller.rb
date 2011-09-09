@@ -30,6 +30,33 @@ class SurveysController < ApplicationController
   
   def stats
     @survey = Survey.find(params[:id])
+    @answers = @survey.answers
+    
+    #@answers = []
+    #all_answers.each do |a|
+    #  @answers[a.id] = a
+    #end
+    #@votes = @survey.votes.order('created_at')
+    
+    all_votes = Vote.find_by_sql('select answer_id, count(id) as nb from votes  group by answer_id ')
+    @votes = []
+    @max = 0
+    @total = 0
+    all_votes.each do |v|
+      @votes[v.answer_id] = v
+      if v.nb > @max
+        @max = v.nb
+        @total += v.nb
+      end
+    end
+    #puts '================'
+    #puts v.inspect
+    #puts v[0].nb
+    
+    
+    
+    
+=begin    
     @votes = []
     if params[:date]
       @date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
@@ -51,7 +78,7 @@ class SurveysController < ApplicationController
     else
       
     end
-    
+=end
     
   end
   

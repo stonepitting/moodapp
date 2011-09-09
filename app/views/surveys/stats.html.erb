@@ -1,4 +1,6 @@
 <% content_for :head do %>
+
+<% if false %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
     
@@ -37,11 +39,26 @@
 
 <% end %>
 
+<% end %>
 <h1>Stats for <%=link_to @survey.name, @survey%></h1>
 
-<% form_tag do %>
-<%=select_date(@date)%>
-<%=submit_tag 'Go'%>
-<% end %>
-
-<div id="chart_div"></div>
+<table class="survey">
+	<tr>
+		<% @answers.each do |a| %>
+			<td class="positioned" valign="bottom" style="vertical-align:bottom">
+				<div style="height:<%=(@votes[a.id].nb * 300)/@max%>px" class="stat-block">
+				
+					<%= (@votes[a.id].nb*100/@total)%>% 
+				</div>
+			</td>
+		<% end %>
+	</tr>
+	<tr>
+		<% @answers.each do |a| %>
+			<td>
+				<%=a.content%>
+				
+			</td>
+		<% end %>
+	</tr>
+</table>
