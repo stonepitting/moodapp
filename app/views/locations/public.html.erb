@@ -1,14 +1,27 @@
 <div id="content">
 	<h1><%=@survey.question%></h1>
-	<div id="ajax-div">
+	<div id="ajax-div" style="display:none">
 		
 	</div>
-
+	<div id="stats-div" style="display:none">
+		
+	</div>
 </div>
 <script type="text/javascript">
+
+var upd_anwsers = true;
 $(function(){
 	//$('#ajax-div').load();
 	loadAnswers();
+	showAnswers();
+	updateStatsDiv();
+	setInterval( "updateStatsDiv()", 4000 );
+	setInterval( function() {
+		if (upd_answers){
+	    	loadAnswers();
+			showAnswers();
+			}
+	}, 10000 );
 });
 
 function loadAnswers(){
@@ -23,26 +36,64 @@ function loadAnswers(){
 	});
 }
 
+function showAnswers(){
+	$('#ajax-div').show();
+	upd_answers = true;
+}
+
+function hideAnswers(){
+	$('#ajax-div').hide();
+}
+
+function showStats(){
+	$('#stats-div').show();
+	upd_answers = false;
+}
+function hideStats(){
+	$('#stats-div').hide();
+}
+
+
+
 function vote(location_id, answer_id){
+
 	$.ajax({
 	  url: '/locations/' + location_id + '/vote',
 	  data: 'answer_id=' + answer_id,
 	  success: function(data) {
 	    //loadStats(location_id);
-		loadAnswers();
+		
 	  },
 	  beforeSend: function(data) {
 	    $('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
 	  }
 	});
+	
+	<% if @location.survey.display_stats %>
+	hideAnswers();
+	showStats();
+	setTimeout(function() {
+	    hideStats();
+		loadAnswers();
+		showAnswers();
+	}, 2000);
+	<% else %>
+	loadAnswers();
+	showAnswers();
+	<% end %>
 	return false;
 }
 
-function loadStats(location_id){
+function updateStatsDiv(){
+	console.log('test');
+	$('#stats-div').load('/surveys/<%=@location.survey_id%>/stats');
+}
+
+function loadStats(){
 	//$('#ajax-div').load('/locations/'+location_id+'/stats');
 	console.log('starting...');
 	$.ajax({
-	  url: '/locations/' + location_id + '/stats',
+	  url: '/locations/stats',
 	  dataType: 'html',
 	  success: function(data) {
 		console.log('success..');

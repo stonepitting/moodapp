@@ -79,6 +79,11 @@ class SurveysController < ApplicationController
       
     end
 =end
+    if request.xhr?
+      render :partial => 'stats_ajax'
+    else
+      
+    end
     
   end
   

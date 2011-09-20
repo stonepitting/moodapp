@@ -63,9 +63,16 @@ body{
 h1{color: #fff; font-size: 2em; line-height: 1em}
 
 #ajax-div{margin-top: 200px}
+
+#stats-div{text-align: center; margin-top: 100px }
 li{display: inline-block; }
 li a{display:inline-block;border-radius:20px; border: 5px solid #fff; padding: 30px 20px; position:relative; bottom: 30px; background-color: #aaa; margin: 0 10px; color: #fff; text-decoration: none}
 li a:hover{background-color: #666;}
 li a.vote-img{ background: transparent; padding: 0; margin: 0; line-height: auto; border:0;  border-radius: 0;line-height:0em; bottom: -5px}
 li a.vote-img img{height:100px; padding: 0; margin:0;}
 li a.vote-img:hover{border: 0; background: transparent}
+
+.survey{display: inline-block}
+.stat-block{background-color: #eee; color: #000 }
+.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 0.5em}
+.survey {border: 0}
