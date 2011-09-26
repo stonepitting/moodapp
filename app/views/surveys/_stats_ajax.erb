@@ -12,7 +12,12 @@
 	<tr>
 		<% @answers.each do |a| %>
 			<td>
-				<%=a.content%>
+				
+				<% if a.as_image && a.pic_file_name %>
+					<%= image_tag(a.pic.url(:thumb)) %>
+				<% else %>
+					<%=a.content%>
+				<% end %>
 				
 			</td>
 		<% end %>

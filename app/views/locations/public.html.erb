@@ -21,7 +21,7 @@ $(function(){
 	    	loadAnswers();
 			showAnswers();
 			}
-	}, 10000 );
+	}, 60000 );
 });
 
 function loadAnswers(){
@@ -72,9 +72,9 @@ function vote(location_id, answer_id){
 	<% if @location.survey.display_stats %>
 	hideAnswers();
 	showStats();
+	loadAnswers();
 	setTimeout(function() {
 	    hideStats();
-		loadAnswers();
 		showAnswers();
 	}, 2000);
 	<% else %>

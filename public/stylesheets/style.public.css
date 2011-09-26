@@ -74,5 +74,5 @@ li a.vote-img:hover{border: 0; background: transparent}
 
 .survey{display: inline-block}
 .stat-block{background-color: #eee; color: #000 }
-.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 0.5em}
+.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 0.5em; vertical-align: top}
 .survey {border: 0}
