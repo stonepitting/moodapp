@@ -34,6 +34,6 @@ production:
   reconnect: false
   database: moodapp_production
   pool: 5
-  username: root
-  password:
+  username: moodapp
+  password: Mo098oD
   socket: /tmp/mysql.sock
