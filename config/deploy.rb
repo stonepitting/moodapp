@@ -1,15 +1,21 @@
 set :application, "moodapp"
-role :web, "www.moodapp.com"
-role :app, "www.moodapp.com"
-role :db,  "www.moodapp.com", :primary => true
+#role :web, "www.moodapp.com"
+#role :app, "www.moodapp.com"
+#role :db,  "www.moodapp.com", :primary => true
+
+role :web, "moodapp.atlassian.com"
+role :app, "moodapp.atlassian.com"
+role :db,  "moodapp.atlassian.com", :primary => true
 
 
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :deploy_to, "/var/www/www.moodapp.com"
+ssh_options[:keys] = %w(~/.ssh/ec2-moodapp.pem)
+#set :deploy_to, "/var/www/www.moodapp.com"
+set :deploy_to, "/var/www/moodapp.atlassian.com"
 set :deploy_via, :remote_cache
-set :user, "root"
+set :user, "ec2-user"
 set :use_sudo, true
 
 # repo details

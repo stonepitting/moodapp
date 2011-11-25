@@ -3,7 +3,7 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.xml
   def index
-    @surveys = Survey.all
+    @surveys = current_user.surveys
 
     if @surveys.size == 0
       @survey = Survey.new
@@ -49,6 +49,8 @@ class SurveysController < ApplicationController
         @total += v.nb
       end
     end
+    
+    
     #puts '================'
     #puts v.inspect
     #puts v[0].nb
@@ -84,6 +86,14 @@ class SurveysController < ApplicationController
     else
       
     end
+    
+  end
+  
+  def stats_all
+    @survey = Survey.find(params[:id])
+    @answers = @survey.answers
+
+    @votes = @survey.votes
     
   end
   

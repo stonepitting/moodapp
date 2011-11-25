@@ -16,6 +16,7 @@ Moodapp::Application.routes.draw do
     member do
       get 'stats'
       post 'stats'
+      get 'stats_all'
     end
   end
   

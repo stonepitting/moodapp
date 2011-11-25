@@ -7,6 +7,23 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "<div id=\"home\">\n	<div id=\"about\">\n		<strong>\n			Tips as a Service\n		</strong>\n		<span>\n			Arbalet lets you display <b>messages, tips and help boxes</b> in your application in the <b>simplest way\n			possible</b>.\n		</span>\n		<%= link_to('Register', new_user_registration_path, :class => 'button')  %>\n	</div>	\n	<div id=\"signin\">\n			<%= form_for(\"user\", :url => user_session_path) do |f| %>\n			  <%= f.text_field :Email, :value => 'Email', :onfocus => 'this.value=\"\";' %>\n			  <%= f.text_field :password, :value => 'Password', :onfocus => 'this.value=\"\";this.type=\"password\"' %>\n			  <%= f.check_box :remember_me %>\n			  <%= f.label :remember_me %>\n			  <%= f.submit 'Sign in' %>\n			  <%= link_to \"Forgot your password?\", new_password_path('user') %>\n			<% end %>\n		\n	</div>\n</div>\n",
+			"file": "/Users/spittet/Sites/ror/arbalet/app/views/home/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 780,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/spittet/Sites/ror/arbalet/app/controllers/apps_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2758,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -31,13 +48,13 @@
 	},
 	"file_history":
 	[
+		"/Users/spittet/Sites/ror/arbalet/app/controllers/pages_controller.rb",
 		"/Users/spittet/Sites/ror/arbalet/app/views/pages/_form.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/app/views/layouts/application.html.erb",
 		"/Users/spittet/Sites/ror/arbalet/public/stylesheets/style.css",
 		"/Users/spittet/Downloads/fr.yml",
 		"/Users/spittet/Sites/ror/arbalet/public/javascripts/application.js",
 		"/Users/spittet/Sites/ror/arbalet/app/views/pages/edit.html.erb",
-		"/Users/spittet/Sites/ror/arbalet/app/controllers/pages_controller.rb",
 		"/Users/spittet/Sites/ror/arbalet/app/models/box.rb",
 		"/Users/spittet/Sites/ror/arbalet/app/controllers/page_boxes_controller.rb",
 		"/Users/spittet/Sites/ror/arbalet/app/views/home/dashboard.html.erb",
@@ -67,7 +84,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0,
+		"height": 86,
 		"include_history":
 		[
 		],
@@ -110,6 +127,61 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/spittet/Sites/ror/arbalet/app/views/home/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								780,
+								780
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/spittet/Sites/ror/arbalet/app/controllers/apps_controller.rb",
+					"settings":
+					{
+						"buffer_size": 2758,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								322,
+								322
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -154,6 +226,18 @@
 		"height": 0,
 		"selected_items":
 		[
+			[
+				"index",
+				"app/views/home/index.html.erb"
+			],
+			[
+				"controller",
+				"app/controllers/apps_controller.rb"
+			],
+			[
+				"home",
+				"app/views/home/index.html.erb"
+			],
 			[
 				"style",
 				"public/stylesheets/style.css"
@@ -233,10 +317,6 @@
 			[
 				"appli",
 				"public/javascripts/application.js"
-			],
-			[
-				"index",
-				"app/views/answers/index.html.erb"
 			]
 		],
 		"width": 0

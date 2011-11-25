@@ -1,0 +1,20 @@
+
+<table>
+  <tr>
+    <th>Vote Type</th>
+    <th>Location</th>
+    <th>Date</th>
+    
+  </tr>
+
+<% @votes.each do |vote| %>
+<% if vote.answer %>
+  <tr>
+    <td><%= vote.answer.content %></td>
+    <td><%= vote.location.name %></td>
+    <td><%=l vote.created_at, :format => :long %></td>
+		
+  </tr>
+<% end %>
+<% end %>
+</table>

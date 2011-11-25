@@ -15,6 +15,7 @@ gem 'mysql2', '~> 0.2.6'
 gem 'devise'
 gem 'jquery-rails'
 gem 'paperclip'
+gem 'newrelic_rpm'
 
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)

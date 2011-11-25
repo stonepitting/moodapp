@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = Location.all
+    @locations = current_user.locations
     if @locations.size == 0
       @location = Location.new
     end
