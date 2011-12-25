@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
     if @locations.size == 0
       @location = Location.new
     end
-    @surveys = Survey.all
+    @surveys = current_user.surveys
     
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
   # GET /locations/1.xml
   def show
     @location = Location.find(params[:id])
-    @surveys = Survey.all
+    @surveys = current_user.surveys
 
     respond_to do |format|
       format.html # show.html.erb
@@ -66,8 +66,8 @@ class LocationsController < ApplicationController
   # GET /locations/new.xml
   def new
     @location = Location.new
-    @surveys = Survey.all
-
+    @surveys = current_user.surveys
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @location }
@@ -77,7 +77,7 @@ class LocationsController < ApplicationController
   # GET /locations/1/edit
   def edit
     @location = Location.find(params[:id])
-    @surveys = Survey.all
+    @surveys = current_user.surveys
     
   end
 

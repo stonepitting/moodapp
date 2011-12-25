@@ -24,6 +24,10 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+	<div class="field">
+	    <%= f.label :scale_size, 'Type of scale' %><br />
+		<%= select("survey", "scale_size", [['Binary', 2], ['5 values', 5]])%>
+	  </div>
   <div class="field">
     
     <%= f.check_box :enabled %> <%= f.label :enabled %>

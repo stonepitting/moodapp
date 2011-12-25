@@ -15,7 +15,8 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Enabled</th>
+    <th>Scale Type</th>
+	<th>Enabled</th>
     <th>Votes</th>
     <th></th>
   </tr>
@@ -24,6 +25,15 @@
   <tr>
     <td><%= link_to survey.name, survey %></td>
     <td><%= survey.description %></td>
+	<td>
+		<% if survey.scale_size == 2 %>
+			Binary scale
+		  <% elsif survey.scale_size == 5 %>
+			5 degrees scale
+		  <% else %>
+			Bad type
+		<% end %>
+	</td>
     <td><%= survey.enabled %></td>
     <td><%= survey.votes_count%></td>
     <td class="actions">
