@@ -1,5 +1,21 @@
 <div id="content">
 	<h1><%=@survey.question%></h1>
+	
+	<div id="answers-div">
+		<% if @survey.scale_size == 2 %>
+		
+		<% elsif @survey.scale_size == 5 %>
+		<ul>
+			<% for i in 1..5 %>
+			<li>
+				<%=i%>
+			</li>
+			<% end %>
+		</ul>
+		<% else %>
+			Sorry, an error occurred
+		<% end %>
+	</div>
 	<div id="ajax-div" style="display:none">
 		
 	</div>
