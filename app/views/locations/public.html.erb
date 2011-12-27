@@ -8,7 +8,7 @@
 		<ul>
 			<% for i in 1..5 %>
 			<li>
-				<%=i%>
+				<%=link_to "label #{i}", '#', :onclick => "return saveRating('label_#{i}')"%>
 			</li>
 			<% end %>
 		</ul>
@@ -116,6 +116,23 @@ function loadStats(){
 		console.log('data');
 	     eval(data);
 		console.log("Data "+data);
+	  }
+	});
+}
+
+function saveRating(label){
+	console.log('save ' + label);
+	$.ajax({
+	  url: '/ratings',
+	  data: 'rating[survey_id]=<%=@location.survey_id%>&rating[location_id]=<%=@location.id%>&rating[label]=' + label,
+	  type:'POST',
+	  success: function(data) {
+	  	console.log('rating saved!');
+		
+	  },
+	  beforeSend: function(data) {
+	    console.log('saving rating');
+		//$('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
 	  }
 	});
 }
