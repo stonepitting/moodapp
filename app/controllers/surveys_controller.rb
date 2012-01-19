@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_user!, :except => :stats
+  before_filter :authenticate_user!, :except => [:stats, :options]
   # GET /surveys
   # GET /surveys.xml
   def index
@@ -18,11 +18,18 @@ class SurveysController < ApplicationController
   # GET /surveys/1.xml
   def show
     @survey = Survey.find(params[:id])
-    @answers = @survey.answers
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @survey }
+    end
+  end
+  
+  def options
+    @survey = Survey.find(params[:id])
+    
+    respond_to do |format|
+      format.html { render :partial => "options", :layout => false }
     end
   end
   
@@ -30,61 +37,25 @@ class SurveysController < ApplicationController
   
   def stats
     @survey = Survey.find(params[:id])
-    @answers = @survey.answers
-    
-    #@answers = []
-    #all_answers.each do |a|
-    #  @answers[a.id] = a
-    #end
-    #@votes = @survey.votes.order('created_at')
-    
-    all_votes = Vote.find_by_sql('select answer_id, count(id) as nb from votes  group by answer_id ')
-    @votes = []
+  
+  
+    all_ratings = Rating.find_by_sql("select count(id) as rating_count, label from ratings where survey_id = #{@survey.id} group by label")
+    @ratings = {}
     @max = 0
     @total = 0
-    all_votes.each do |v|
-      @votes[v.answer_id] = v
-      if v.nb > @max
-        @max = v.nb
-        @total += v.nb
+    all_ratings.each do |r|
+      @ratings[r.label] = r.rating_count
+      if r.rating_count > @max
+        @max = r.rating_count
       end
+      @total += r.rating_count
     end
-    
-    
-    #puts '================'
-    #puts v.inspect
-    #puts v[0].nb
-    
-    
-    
-    
-=begin    
-    @votes = []
-    if params[:date]
-      @date = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
-      @votes = @survey.votes.where("YEAR(created_at) = ? and MONTH(created_at) = ?", params[:date][:year], params[:date][:month]).group('answer_id')
-      
-    else
-      @answers = @survey.answers
-      if @answers
-        @votes = @answers.votes.group('answer_id')
-      end
-    end
-    
-    puts '-------------------------------------'
-    puts @votes.inspect
-    
-    if request.xhr?
-      
-      render :partial => 'stats_ajax'
-    else
-      
-    end
-=end
+    puts @total
+    puts @ratings
     if request.xhr?
       render :partial => 'stats_ajax'
     else
-      
+   
     end
     
   end

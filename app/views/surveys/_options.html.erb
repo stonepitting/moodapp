@@ -1,0 +1,13 @@
+<div id="answers-div">
+	<% if @survey.scale_size == 2 %>
+	
+	<% elsif @survey.scale_size == 5 %>
+	<%=link_to image_tag('awesome.png'), '#', :onclick => "return saveRating('awesome')"%>
+	<%=link_to image_tag('good.png'), '#', :onclick => "return saveRating('good')"%>
+	<%=link_to image_tag('meh.png'), '#', :onclick => "return saveRating('meh')"%>
+	<%=link_to image_tag('bad.png'), '#', :onclick => "return saveRating('bad')"%>
+	<%=link_to image_tag('fuck.png'), '#', :onclick => "return saveRating('fuck')"%>
+	<% else %>
+		Sorry, an error occurred
+	<% end %>
+</div>

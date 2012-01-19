@@ -2,3 +2,4 @@ TODO
 * Replace the vote table with the rating table
 * Fix the stats display
 * Have an export function for the ratings	
+* Get the stats calculation from the ratings, not the votes table

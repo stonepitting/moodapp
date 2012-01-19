@@ -35,7 +35,7 @@
 		<% end %>
 	</td>
     <td><%= survey.enabled %></td>
-    <td><%= survey.votes_count%></td>
+    <td><%= survey.ratings.size%></td>
     <td class="actions">
 		<%= link_to 'Edit', edit_survey_path(survey) %>
 		<%= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete %>

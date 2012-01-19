@@ -40,7 +40,7 @@ class LocationsController < ApplicationController
   def public
     @location = Location.find(params[:id])
     @survey = @location.survey
-    @answers = @survey.answers
+    @ratings_count = Rating.find_by_sql("select count(id) as ratings_count from ratings where survey_id = #{@survey.id}")
     render :layout => 'public_layout'
   end
   

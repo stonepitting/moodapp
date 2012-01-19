@@ -48,7 +48,7 @@ blockquote, q {
 /******** END RESET ***********/
 
 body{
-	background: #1A3265;
+	background: #000;
 	color: #fff;
 	font: normal 2em Helvetica Neue,Arial,Sans-serif; 
 	line-height: 1em;
@@ -57,14 +57,14 @@ body{
 	
 }
 
-#content{position:absolute; top: 30%;width: 100%; height: 500px; margin-top:-150px}
+#content{position:relative; top: 30%;width: 100%; height: 500px; margin-top:50px}
 
 
-h1{color: #fff; font-size: 2em; line-height: 1em}
+h1{color: #fff; font-size: 2em; line-height: 1em; font-family: "Century Gothic"; padding-bottom: 80px}
 
-#ajax-div{margin-top: 200px}
+#ajax-div{margin-top: 0px}
 
-#stats-div{text-align: center; margin-top: 100px }
+#stats-div{text-align: center; margin-top: 0px }
 li{display: inline-block; }
 li a{display:inline-block;border-radius:20px; border: 5px solid #fff; padding: 30px 20px; position:relative; bottom: 30px; background-color: #aaa; margin: 0 10px; color: #fff; text-decoration: none}
 li a:hover{background-color: #666;}
@@ -74,5 +74,8 @@ li a.vote-img:hover{border: 0; background: transparent}
 
 .survey{display: inline-block}
 .stat-block{background-color: #eee; color: #000 }
-.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 0.5em; vertical-align: top}
+.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 0.4em; vertical-align: top}
 .survey {border: 0}
+.survey img{width: 80px}
+
+#header{background: #383838}

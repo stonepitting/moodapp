@@ -1,22 +1,37 @@
-<h1>Stats for <%=link_to @survey.name, @survey%></h1>
+<h1>Stats for <%=link_to @survey.name, @survey%> (<%= @survey.ratings.size%>)</h1>
 
 <table class="survey">
-	<tr>
-		<% @answers.each do |a| %>
-			<td class="positioned" valign="bottom" style="vertical-align:bottom">
-				<div style="height:<%=(@votes[a.id].nb * 300)/@max%>px" class="stat-block">
-				
-					<%= (@votes[a.id].nb*100/@total)%>% 
-				</div>
-			</td>
+	<% if @survey.scale_size == 2 %>
+	
+	<% elsif @survey.scale_size == 5 %>
+		<tr>	
+		<%['awesome', 'good', 'meh', 'bad', 'fuck'].each do |option|%>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<% if @ratings[option] %>
+					<div style="height:<%=(@ratings[option] * 300)/@max%>px" class="stat-block">
+
+						<%= (@ratings[option].to_f*100/@total.to_f).round%>% (<%=@ratings[option]%>)
+					</div>
+					<% else %>
+					<div style="0px" class="stat-block">
+
+						<%= 0 %>% 
+					</div>
+					<% end %>
+				</td>
+			
 		<% end %>
-	</tr>
-	<tr>
-		<% @answers.each do |a| %>
-			<td>
-				<%=a.content%>
-				
-			</td>
+		</tr>
+		<tr>	
+		<%['awesome', 'good', 'meh', 'bad', 'fuck'].each do |option|%>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<%=image_tag(option + '.png')%>
+				</td>
+			
 		<% end %>
-	</tr>
+		</tr>
+	<% end %>
+	
 </table>

@@ -1,21 +1,8 @@
 <div id="content">
+	
 	<h1><%=@survey.question%></h1>
 	
-	<div id="answers-div">
-		<% if @survey.scale_size == 2 %>
-		
-		<% elsif @survey.scale_size == 5 %>
-		<ul>
-			<% for i in 1..5 %>
-			<li>
-				<%=link_to "label #{i}", '#', :onclick => "return saveRating('label_#{i}')"%>
-			</li>
-			<% end %>
-		</ul>
-		<% else %>
-			Sorry, an error occurred
-		<% end %>
-	</div>
+	
 	<div id="ajax-div" style="display:none">
 		
 	</div>
@@ -26,6 +13,9 @@
 <script type="text/javascript">
 
 var upd_anwsers = true;
+var display_stats = <%= @location.survey.display_stats %>;
+var stats_threshold = <%= @location.survey.votes_before_stats %>;
+var ratings_count = <%= @ratings_count[0].ratings_count %>;
 $(function(){
 	//$('#ajax-div').load();
 	loadAnswers();
@@ -42,7 +32,7 @@ $(function(){
 
 function loadAnswers(){
 	$.ajax({
-	  url: '/locations/<%=@location.id%>/answers',
+	  url: '/surveys/<%=@location.id%>/options',
 	  success: function(data) {
 	    $('#ajax-div').html(data);
 	  },
@@ -71,35 +61,6 @@ function hideStats(){
 
 
 
-function vote(location_id, answer_id){
-
-	$.ajax({
-	  url: '/locations/' + location_id + '/vote',
-	  data: 'answer_id=' + answer_id,
-	  success: function(data) {
-	    //loadStats(location_id);
-		
-	  },
-	  beforeSend: function(data) {
-	    $('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
-	  }
-	});
-	
-	<% if @location.survey.display_stats %>
-	hideAnswers();
-	showStats();
-	loadAnswers();
-	setTimeout(function() {
-	    hideStats();
-		showAnswers();
-	}, 2000);
-	<% else %>
-	loadAnswers();
-	showAnswers();
-	<% end %>
-	return false;
-}
-
 function updateStatsDiv(){
 	console.log('test');
 	$('#stats-div').load('/surveys/<%=@location.survey_id%>/stats');
@@ -127,7 +88,7 @@ function saveRating(label){
 	  data: 'rating[survey_id]=<%=@location.survey_id%>&rating[location_id]=<%=@location.id%>&rating[label]=' + label,
 	  type:'POST',
 	  success: function(data) {
-	  	console.log('rating saved!');
+	  	ratings_count++;
 		
 	  },
 	  beforeSend: function(data) {
@@ -135,5 +96,22 @@ function saveRating(label){
 		//$('#ajax-div').html('<img src="/images/ajax.gif" alt="" />');
 	  }
 	});
+	
+	if (display_stats && (ratings_count > stats_threshold)  ){
+		hideAnswers();
+		showStats();
+		loadAnswers();
+		setTimeout(function() {
+	    hideStats();
+		showAnswers();
+	}, 2000);
+	}
+	else {
+		loadAnswers();
+		showAnswers();
+	}
+	return false;
+	
+	return false;
 }
 </script>
