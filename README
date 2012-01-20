@@ -3,3 +3,5 @@ TODO
 * Fix the stats display
 * Have an export function for the ratings	
 * Get the stats calculation from the ratings, not the votes table
+
+- Create the migration to have size_type and image_type

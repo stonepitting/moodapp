@@ -3,7 +3,7 @@
 	
 	<% elsif @survey.scale_size == 5 %>
 		<tr>	
-		<%['awesome', 'good', 'meh', 'bad', 'fuck'].each do |option|%>
+		<%['4-hand', '3-hand', '2-hand', '1-hand', '0-hand'].each do |option|%>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<% if @ratings[option] %>
@@ -22,7 +22,7 @@
 		<% end %>
 		</tr>
 		<tr>	
-		<%['awesome', 'good', 'meh', 'bad', 'fuck'].each do |option|%>
+		<%['4-hand', '3-hand', '2-hand', '1-hand', '0-hand'].each do |option|%>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<%=image_tag(option + '.png')%>

@@ -32,7 +32,7 @@ $(function(){
 
 function loadAnswers(){
 	$.ajax({
-	  url: '/surveys/<%=@location.id%>/options',
+	  url: '/surveys/<%=@location.survey.id%>/options',
 	  success: function(data) {
 	    $('#ajax-div').html(data);
 	  },

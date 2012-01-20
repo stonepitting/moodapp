@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227065429) do
+ActiveRecord::Schema.define(:version => 20120120015611) do
 
   create_table "answers", :force => true do |t|
     t.integer  "survey_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20111227065429) do
     t.integer  "votes_before_stats",    :default => 10
     t.integer  "stats_default_history", :default => 7
     t.integer  "scale_size",            :default => 5
+    t.string   "scale_type",            :default => "hand"
   end
 
   create_table "users", :force => true do |t|
