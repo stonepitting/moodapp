@@ -1,8 +1,5 @@
 <div id="content">
 	
-	<h1><%=@survey.question%></h1>
-	
-	
 	<div id="ajax-div" style="display:none">
 		
 	</div>
@@ -21,7 +18,7 @@ $(function(){
 	loadAnswers();
 	showAnswers();
 	updateStatsDiv();
-	setInterval( "updateStatsDiv()", 4000 );
+	setInterval( "updateStatsDiv()", 60000 );
 	setInterval( function() {
 		if (upd_answers){
 	    	loadAnswers();
@@ -32,7 +29,7 @@ $(function(){
 
 function loadAnswers(){
 	$.ajax({
-	  url: '/surveys/<%=@location.survey.id%>/options',
+	  url: '/locations/<%=@location.id%>/options',
 	  success: function(data) {
 	    $('#ajax-div').html(data);
 	  },
@@ -63,7 +60,7 @@ function hideStats(){
 
 function updateStatsDiv(){
 	console.log('test');
-	$('#stats-div').load('/surveys/<%=@location.survey_id%>/stats');
+	$('#stats-div').load('/locations/<%=@location.id%>/stats');
 }
 
 function loadStats(){

@@ -2,7 +2,7 @@
 <h2><%= @survey.question %></h2>
 <%= link_to 'Edit', edit_survey_path(@survey), :class => 'button' %>
 <p>
-  <b>Scale Type:</b>
+  <b>Scale Size:</b>
   <% if @survey.scale_size == 2 %>
 	Binary scale
   <% elsif @survey.scale_size == 5 %>
@@ -12,11 +12,13 @@
   <% end %>
 </p>
 <p>
+  <b>Scale Type:</b>
+  <%= @survey.scale_type %>
+</p>
+<p>
   <b>Description:</b>
   <%= @survey.description  %>
 </p>
-
-
 <p>
   <b>Enabled:</b>
   <%= @survey.enabled %>

@@ -25,40 +25,8 @@ class SurveysController < ApplicationController
     end
   end
   
-  def options
-    @survey = Survey.find(params[:id])
-    
-    respond_to do |format|
-      format.html { render :partial => "options", :layout => false }
-    end
-  end
-  
-  # Get and display stats
-  
-  def stats
-    @survey = Survey.find(params[:id])
   
   
-    all_ratings = Rating.find_by_sql("select count(id) as rating_count, label from ratings where survey_id = #{@survey.id} group by label")
-    @ratings = {}
-    @max = 0
-    @total = 0
-    all_ratings.each do |r|
-      @ratings[r.label] = r.rating_count
-      if r.rating_count > @max
-        @max = r.rating_count
-      end
-      @total += r.rating_count
-    end
-    puts @total
-    puts @ratings
-    if request.xhr?
-      render :partial => 'stats_ajax'
-    else
-   
-    end
-    
-  end
   
   def stats_all
     @survey = Survey.find(params[:id])

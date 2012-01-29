@@ -61,6 +61,7 @@ body{
 
 
 h1{color: #fff; font-size: 2em; line-height: 1em; font-family: "Century Gothic"; padding-bottom: 80px}
+h2{color: #fff; font-size: 1em; line-height: 1em; font-family: "Century Gothic"; padding-bottom: 40px}
 
 #ajax-div{margin-top: 0px}
 
@@ -73,9 +74,15 @@ li a.vote-img img{ padding: 0; margin:0;}
 li a.vote-img:hover{border: 0; background: transparent}
 
 .survey{display: inline-block}
-.stat-block{background-color: #eee; color: #000 }
-.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 0.4em; vertical-align: top}
+.stat-block{ color: #000 }
+.survey td {width: 80px; text-align:center; padding: 0 5px 5px 5px; font-size: 1.1em; vertical-align: top}
 .survey {border: 0}
 .survey img{width: 80px}
 
 #header{background: #383838}
+
+.color-4{background-color: #BFFF00}
+.color-3{background-color: #E9FF00}
+.color-2{background-color: #FFE900}
+.color-1{background-color: #FFBF00}
+.color-0{background-color: #FF9500}

@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:public, :vote, :stats]
+  before_filter :authenticate_user!, :except => [:public, :vote, :stats, :options]
   # GET /locations
   # GET /locations.xml
   def index
@@ -15,14 +15,7 @@ class LocationsController < ApplicationController
     end
   end
   
-  def stats
-    @location = Location.find(params[:id])
-    @survey = @location.survey
-    @answers = @survey.answers
-    history_date = Date.today - @survey.stats_default_history.days
-    @votes = @survey.votes.where("created_at > ?", history_date).group('answer_id')
-    render :layout => false
-  end
+
 
   # GET /locations/1
   # GET /locations/1.xml
@@ -42,6 +35,41 @@ class LocationsController < ApplicationController
     @survey = @location.survey
     @ratings_count = Rating.find_by_sql("select count(id) as ratings_count from ratings where survey_id = #{@survey.id}")
     render :layout => 'public_layout'
+  end
+  
+  def options
+    @location = Location.find(params[:id])
+    @survey = @location.survey
+    respond_to do |format|
+      format.html { render :partial => "options", :layout => false }
+    end
+  end
+  
+  # Get and display stats
+  
+  def stats
+    @location = Location.find(params[:id])
+    @survey = @location.survey
+    
+    all_ratings = Rating.find_by_sql("select count(id) as rating_count, label from ratings where survey_id = #{@survey.id} group by label")
+    @ratings = {}
+    @max = 0
+    @total = 0
+    all_ratings.each do |r|
+      @ratings[r.label] = r.rating_count
+      if r.rating_count > @max
+        @max = r.rating_count
+      end
+      @total += r.rating_count
+    end
+    puts @total
+    puts @ratings
+    if request.xhr?
+      render :partial => 'stats_ajax'
+    else
+   
+    end
+    
   end
   
   #register a vote
