@@ -1,0 +1,74 @@
+<h2><%=@survey.question%></h2>
+<table class="survey">
+	<% if @survey.scale_size == 2 %>
+		<tr>	
+		<%['4', '0'].each do |option|%>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<% if @ratings[option] %>
+					<div style="height:<%=((@ratings[option] * 200)/@max) + 20%>px" class="stat-block color-<%=option%>">
+
+						
+					</div>
+					<% else %>
+					<% end %>
+				</td>
+			
+		<% end %>
+		</tr>
+		<tr>	
+		<%['4', '0'].each do |option|%>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<%=image_tag(option.to_s + '-'  + @survey.scale_type + '.png')%>
+				</td>
+			
+		<% end %>
+		</tr>
+		<tr>	
+		<%['4', '0'].each do |option|%>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<%= (@ratings[option].to_f*100/@total.to_f).round%>%
+				</td>
+			
+		<% end %>
+		</tr>
+		
+	<% elsif @survey.scale_size == 5 %>
+		<tr>
+		<% 4.downto(0) do |option| %>
+		
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<% if @ratings[option.to_s] %>
+					<div style="height:<%=((@ratings[option.to_s] * 200)/@max) + 20%>px" class="stat-block color-<%=option%>">
+	
+					</div>
+					<% else %>
+					<% end %>
+				</td>
+			
+		<% end %>
+		</tr>
+		<tr>	
+		<% 4.downto(0) do |option| %>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<%=image_tag(option.to_s + '-'  + @survey.scale_type + '.png')%>
+				</td>
+			
+		<% end %>
+		</tr>
+		<tr>	
+		<% 4.downto(0) do |option| %>
+			
+				<td class="positioned" valign="bottom" style="vertical-align:bottom">
+					<%= (@ratings[option.to_s].to_f*100/@total.to_f).round%>%
+				</td>
+			
+		<% end %>
+		</tr>
+	<% end %>
+	
+</table>
