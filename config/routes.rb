@@ -3,8 +3,6 @@ Moodapp::Application.routes.draw do
 
   resources :votes
 
-  resources :answers
-
   resources :surveys
 
   resources :locations
@@ -14,7 +12,7 @@ Moodapp::Application.routes.draw do
   match 'dashboard' => 'home#dashboard'
   
   resources :surveys do
-    resources :answers
+    resources :ratings
     member do
       get 'stats'
       post 'stats'
@@ -24,10 +22,8 @@ Moodapp::Application.routes.draw do
   end
   
   resources :locations do
-    resources :answers
     member do
       get 'public'
-      get 'vote'
       get 'stats'
       get 'options'
     end

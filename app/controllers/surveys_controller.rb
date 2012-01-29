@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_user!, :except => [:stats, :options]
+  before_filter :authenticate_user!, :except => [:options]
   # GET /surveys
   # GET /surveys.xml
   def index

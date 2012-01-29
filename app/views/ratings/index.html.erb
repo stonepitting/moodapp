@@ -1,17 +1,17 @@
-<h1>Listing ratings</h1>
+<h1>Listing ratings for <%=link_to @survey.name, @survey%></h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Location</th>
+    <th>Value</th>
+    <th>Date</th>
   </tr>
 
 <% @ratings.each do |rating| %>
   <tr>
-    <td><%= link_to 'Show', rating %></td>
-    <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
-    <td><%= link_to 'Destroy', rating, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= rating.location.name %></td>
+    <td><%= rating.label %></td>
+    <td><%=l rating.created_at, :format => :long %></td>
   </tr>
 <% end %>
 </table>

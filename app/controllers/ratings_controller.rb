@@ -2,7 +2,8 @@ class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.xml
   def index
-    @ratings = Rating.all
+    @survey = Survey.find(params[:survey_id])
+    @ratings = @survey.ratings.all(:include => :location)
 
     respond_to do |format|
       format.html # index.html.erb
