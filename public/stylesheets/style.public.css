@@ -50,18 +50,18 @@ blockquote, q {
 body{
 	background: #000;
 	color: #fff;
-	font: normal 2em Helvetica Neue,Arial,Sans-serif; 
+	font: normal 2em Futura,Arial,Sans-serif; 
 	line-height: 1em;
 	text-align: center;
 	
 	
 }
 
-#content{position:relative; top: 30%;width: 100%; height: 500px; margin-top:50px}
+#content{position:relative; top: 10%;width: 100%; height: 500px; margin-top:50px}
 
 
-h1{color: #fff; font-size: 2em; line-height: 1em; font-family: "Century Gothic"; padding-bottom: 80px}
-h2{color: #fff; font-size: 1em; line-height: 1em; font-family: "Century Gothic"; padding-bottom: 40px}
+h1{color: #fff; font-size: 2em; line-height: 1em; font-family: "Century Gothic", "Futura"; padding-bottom: 80px}
+h2{color: #fff; font-size: 1em; line-height: 1em; font-family: "Century Gothic", "Futura"; padding-bottom: 40px}
 
 #ajax-div{margin-top: 0px}
 
