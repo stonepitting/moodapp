@@ -38,7 +38,7 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "touch #{current_path}/tmp/restart.txt"
+    run "sudo touch #{current_path}/tmp/restart.txt"
   end
 
   desc "Symlink shared resources on each release"
