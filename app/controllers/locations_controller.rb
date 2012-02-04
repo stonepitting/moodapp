@@ -56,11 +56,11 @@ class LocationsController < ApplicationController
     @max = 0
     @total = 0
     all_ratings.each do |r|
-      @ratings[r.label] = r.rating_count
-      if r.rating_count > @max
-        @max = r.rating_count
+      @ratings[r.label] = r.rating_count.to_i
+      if r.rating_count.to_i > @max
+        @max = r.rating_count.to_i
       end
-      @total += r.rating_count
+      @total += r.rating_count.to_i
     end
     puts @total
     puts @ratings
