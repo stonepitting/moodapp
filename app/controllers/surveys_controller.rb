@@ -25,7 +25,12 @@ class SurveysController < ApplicationController
     end
   end
   
-  
+  def reset
+    @survey = Survey.find(params[:id])
+    Rating.destroy_all(:survey_id => @survey.id)
+    
+    redirect_to(@survey, :notice => 'Survey was successfully reseted.')
+  end
   
   
   def stats_all

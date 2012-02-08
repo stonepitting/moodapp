@@ -17,7 +17,7 @@ Moodapp::Application.routes.draw do
       get 'stats'
       post 'stats'
       get 'stats_all'
-      
+      get 'reset'
     end
   end
   
