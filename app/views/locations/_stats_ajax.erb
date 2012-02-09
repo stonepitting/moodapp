@@ -2,7 +2,7 @@
 <table class="survey">
 	<% if @survey.scale_size == 2 %>
 		<tr>	
-		<%['4', '0'].each do |option|%>
+		<%['0', '4'].each do |option|%>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<% if @ratings[option] %>
@@ -17,7 +17,7 @@
 		<% end %>
 		</tr>
 		<tr>	
-		<%['4', '0'].each do |option|%>
+		<%['0', '4'].each do |option|%>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<%=image_tag(option.to_s + '-'  + @survey.scale_type + '.png')%>
@@ -26,7 +26,7 @@
 		<% end %>
 		</tr>
 		<tr>	
-		<%['4', '0'].each do |option|%>
+		<%['0', '4'].each do |option|%>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<%= (@ratings[option].to_f*100/@total.to_f).round%>%
@@ -37,7 +37,7 @@
 		
 	<% elsif @survey.scale_size == 5 %>
 		<tr>
-		<% 4.downto(0) do |option| %>
+		<% 0.upto(4) do |option| %>
 		
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
@@ -52,7 +52,7 @@
 		<% end %>
 		</tr>
 		<tr>	
-		<% 4.downto(0) do |option| %>
+		<% 0.upto(4) do |option| %>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<%=image_tag(option.to_s + '-'  + @survey.scale_type + '.png')%>
@@ -61,7 +61,7 @@
 		<% end %>
 		</tr>
 		<tr>	
-		<% 4.downto(0) do |option| %>
+		<% 0.upto(4) do |option| %>
 			
 				<td class="positioned" valign="bottom" style="vertical-align:bottom">
 					<%= (@ratings[option.to_s].to_f*100/@total.to_f).round%>%
