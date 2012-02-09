@@ -78,11 +78,11 @@ function loadStats(){
 	});
 }
 
-function saveRating(label){
+function saveRating(label, survey_id){
 	console.log('save ' + label);
 	$.ajax({
 	  url: '/ratings',
-	  data: 'rating[survey_id]=<%=@location.survey_id%>&rating[location_id]=<%=@location.id%>&rating[label]=' + label,
+	  data: 'rating[survey_id]=' + survey_id + '&rating[location_id]=<%=@location.id%>&rating[label]=' + label,
 	  type:'POST',
 	  success: function(data) {
 	  	ratings_count++;
