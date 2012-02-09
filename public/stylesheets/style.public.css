@@ -86,3 +86,5 @@ li a.vote-img:hover{border: 0; background: transparent}
 .color-2{background-color: #FFE900}
 .color-1{background-color: #FFBF00}
 .color-0{background-color: #FF9500}
+
+#location-place{position: absolute; left: 10px; top: 10px; font-size: 16px; color: #444}
