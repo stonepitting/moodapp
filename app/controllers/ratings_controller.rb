@@ -3,7 +3,7 @@ class RatingsController < ApplicationController
   # GET /ratings.xml
   def index
     @survey = Survey.find(params[:survey_id])
-    @ratings = @survey.ratings.paginate(:page => params[:page], :include => :location, :per_page => 10)
+    @ratings = @survey.ratings.all(:include => :location)
 
     respond_to do |format|
       format.html # index.html.erb
