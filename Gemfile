@@ -18,6 +18,13 @@ gem 'jquery-rails'
 gem 'paperclip'
 gem 'newrelic_rpm'
 
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
+end
+
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
