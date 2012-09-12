@@ -1,0 +1,17 @@
+External Dependencies:
+* Mysql(Use your package manager to install mysql ex: brew install mysql or apt-get install mysql-server)
+
+Basic Install:
+* Install bundler using gem install bundler
+* Install gems using the 'bundle' command. Ensure mysql is installed and running.
+
+Skip the next step if you are not using RVM.
+
+* RVM
+	Skip if you don't use rvm
+	If you are using rvm, you will be able to install dependencies by doing source .rvmrc. From then on, you will automatically be converted to the gemset when you cd to the folder.
+
+
+Datbase setup:
+
+use rake db:create db:migrate to migrate the dev database
