@@ -26,13 +26,14 @@ Graph:
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Frequency', 'Rating'],
-		<% @scores.each do |rating| %>
-			<%= rating %>,
+		<% @scores.each_with_index do |rating, index| %>
+			<%= rating %>
+			<%= ',' unless index == @scores.length - 1 %>
 		<% end %>
         ]);
 
         var options = {
-          title: 'do you like graphs?',
+          title: '<%= @survey.question %>',
           hAxis: {title: 'Rating'},
 		  vAxis: {title: "%", maxValue: 100, minValue: 0}
         };
