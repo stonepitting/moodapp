@@ -14,7 +14,7 @@ class RatingsController < ApplicationController
            
     @survey.scale_size.times {|time| @scores[time] = 0}
 
-    @ratings.each {|rating| @scores[rating.label.to_i] += 1 }
+    @ratings.each {|rating| @scores[(rating.label.to_i + 1)] += 1 }
     
     @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total)] }
     
