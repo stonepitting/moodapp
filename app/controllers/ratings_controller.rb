@@ -9,10 +9,19 @@ class RatingsController < ApplicationController
     puts @survey.inspect
     
     @scores = {}
+    
+    total = @ratings.length;
            
     @survey.scale_size.times {|time| @scores[time] = 0}
     
-    @ratings.each {|rating| @scores[rating] += 1 }
+    puts @ratings.inspect;
+
+    
+    @ratings.each {|rating| @scores[rating.label.to_i] += 1 }
+    
+    @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total) * 100] }
+    
+    puts "total" + total.to_s;
     
     puts @scores.inspect
     

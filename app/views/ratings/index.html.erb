@@ -6,7 +6,6 @@
     <th>Value</th>
     <th>Date</th>
   </tr>
-<%= @ratingsjson %>
 <% @ratings.each do |rating| %>
   <tr>
     <td><%= rating.location.name %></td>
@@ -27,15 +26,15 @@ Graph:
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Frequency', 'Rating'],
-          ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
+		<% @scores.each do |rating| %>
+			<%= rating %>,
+		<% end %>
         ]);
 
         var options = {
-          title: '',
-          hAxis: {title: 'Rating', titleTextStyle: {color: 'red'}}
+          title: 'do you like graphs?',
+          hAxis: {title: 'Rating'},
+		  vAxis: {title: "%", maxValue: 100, minValue: 0}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
