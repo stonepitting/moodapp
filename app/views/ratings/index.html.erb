@@ -34,8 +34,8 @@ Graph:
 
         var options = {
           title: '<%= @survey.question %>',
-          hAxis: {title: 'Rating'},
-		  vAxis: {title: "%", maxValue: 100, minValue: 0}
+          hAxis: {title: 'Rating', maxValue: <%= @survey.scale_size + 1 %>, viewWindow: { max: <%= @survey.scale_size + 1 %> }},
+		  vAxis: {title: "%", format: "#%", maxValue: 1, minValue: 0}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));

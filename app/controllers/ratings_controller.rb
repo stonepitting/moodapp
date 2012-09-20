@@ -16,7 +16,7 @@ class RatingsController < ApplicationController
 
     @ratings.each {|rating| @scores[rating.label.to_i] += 1 }
     
-    @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total) * 100] }
+    @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total)] }
     
     respond_to do |format|
       format.html # index.html.erb
