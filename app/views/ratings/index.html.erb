@@ -6,7 +6,6 @@
     <th>Value</th>
     <th>Date</th>
   </tr>
-
 <% @ratings.each do |rating| %>
   <tr>
     <td><%= rating.location.name %></td>
@@ -17,3 +16,31 @@
 </table>
 
 <br />
+
+Graph:
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Frequency', 'Rating'],
+		<% @scores.each_with_index do |rating, index| %>
+			<%= rating %>
+			<%= ',' unless index == @scores.length - 1 %>
+		<% end %>
+        ]);
+
+        var options = {
+          title: '<%= @survey.question %>',
+          hAxis: {title: 'Rating', maxValue: <%= @survey.scale_size + 1 %>, viewWindow: { max: <%= @survey.scale_size + 1 %> }},
+		  vAxis: {title: "%", format: "#%", maxValue: 1, minValue: 0}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
