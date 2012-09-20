@@ -4,10 +4,24 @@ class RatingsController < ApplicationController
   def index
     @survey = Survey.find(params[:survey_id])
     @ratings = @survey.ratings.all(:include => :location)
+    @ratingsjson = @survey.ratings.all(:include => :location)
+    
+    puts @survey.inspect
+    
+    @scores = {}
+    
+    total = @ratings.length;
+           
+    @survey.scale_size.times {|time| @scores[time] = 0}
 
+    @ratings.each {|rating| @scores[rating.label.to_i] += 1 }
+    
+    @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total)] }
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @ratings }
+      format.json { render :json => @ratingsjson}
     end
   end
 
