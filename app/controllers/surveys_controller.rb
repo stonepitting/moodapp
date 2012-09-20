@@ -3,7 +3,7 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.xml
   def index
-    @surveys = current_user.surveys
+    @surveys = current_user.surveys.paginate(:page => params[:page], :per_page => 10)
 
     if @surveys.size == 0
       @survey = Survey.new

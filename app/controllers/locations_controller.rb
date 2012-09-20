@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = current_user.locations
+    @locations = current_user.locations.paginate(:page => params[:page], :per_page => 10)
     if @locations.size == 0
       @location = Location.new
     end
