@@ -10,6 +10,10 @@
   <%= @stack.description %>
 </p>
 
+<% @surveys.each do |s| %>
+<%=s.name%> <br />
+<% end %>
+
 
 <%= link_to 'Edit', edit_stack_path(@stack) %> |
 <%= link_to 'Back', stacks_path %>

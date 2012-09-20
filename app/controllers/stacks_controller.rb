@@ -14,6 +14,8 @@ class StacksController < ApplicationController
   # GET /stacks/1.xml
   def show
     @stack = Stack.find(params[:id])
+    @stack_surveys = @stack.surveys
+    @surveys = Survey.all(:conditions => ['id not in (?)', @stack_surveys.map(&:id).join(',')])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +27,6 @@ class StacksController < ApplicationController
   # GET /stacks/new.xml
   def new
     @stack = Stack.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @stack }
