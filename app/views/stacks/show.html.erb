@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @stack.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @stack.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_stack_path(@stack) %> |
+<%= link_to 'Back', stacks_path %>

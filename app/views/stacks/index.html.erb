@@ -1,0 +1,25 @@
+<h1>Listing stacks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stacks.each do |stack| %>
+  <tr>
+    <td><%= stack.name %></td>
+    <td><%= stack.description %></td>
+    <td><%= link_to 'Show', stack %></td>
+    <td><%= link_to 'Edit', edit_stack_path(stack) %></td>
+    <td><%= link_to 'Destroy', stack, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stack', new_stack_path %>
