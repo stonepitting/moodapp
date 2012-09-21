@@ -4,6 +4,7 @@ class RatingsController < ApplicationController
   # GET /ratings.xml
   def index
     @survey = Survey.find(params[:survey_id])
+
     @locations = current_user.locations
     location_filter = params[:location]
     
@@ -26,7 +27,7 @@ class RatingsController < ApplicationController
 
     @ratings.each {|rating| @scores[(rating.label.to_i)] += 1 }
     
-    @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total)] }
+    @scores = @scores.map {|score| [score[0],  (score[1].to_f / total).round(2)] }
     
     respond_to do |format|
       format.html # index.html.erb
