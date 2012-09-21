@@ -3,10 +3,18 @@ class RatingsController < ApplicationController
   # GET /ratings.xml
   def index
     @survey = Survey.find(params[:survey_id])
-    @ratings = @survey.ratings.all(:include => :location)
-    @ratingsjson = @survey.ratings.all(:include => :location)
+    location_filter = params[:location] || nil
+
+    if location_filter
+      location_query = ["location_id = ?", location_filter]
+      @location_filter = Location.find(location_filter)
+    else
+      location_filter = ''
+      @location_filter = nil
+    end
     
-    puts @survey.inspect
+    @ratings = @survey.ratings.includes(:location).where(location_query)
+    @ratingsjson = @survey.ratings.all(:include => :location)
     
     @scores = {}
     
@@ -14,7 +22,7 @@ class RatingsController < ApplicationController
            
     @survey.scale_size.times {|time| @scores[time] = 0}
 
-    @ratings.each {|rating| @scores[(rating.label.to_i + 1)] += 1 }
+    @ratings.each {|rating| @scores[(rating.label.to_i)] += 1 }
     
     @scores = @scores.map {|score| puts score; [score[0],  (score[1].to_f / total)] }
     
