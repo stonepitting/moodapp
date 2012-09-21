@@ -19,15 +19,27 @@ class RatingsController < ApplicationController
     @ratings = @survey.ratings.includes(:location).where(location_query)
     @ratingsjson = @survey.ratings.all(:include => :location)
     
-    @scores = {}
     
-    total = @ratings.length;
-           
-    @survey.scale_size.times {|time| @scores[time] = 0}
-
+    # Graph data calculation
+    # Setting up the horizontal axis 
+    
+    @scores = []
+    
+    total = @ratings.length; # use to convert results into percentages
+    
+    @haxis_label = ['very bad', 'bad', 'neutral', 'good', 'very good'] # haxis legend
+    
+    #setting all the base score to 0
+    @haxis_label.each_with_index{|v, i|
+      @scores[i] = 0
+    }
+    
+    
+    # setting up the scores
     @ratings.each {|rating| @scores[(rating.label.to_i)] += 1 }
     
-    @scores = @scores.map {|score| [score[0],  (score[1].to_f / total).round(2)] }
+    # normalizing the scores through percentages
+    @scores.map!{|s| (s.to_f / total * 100).to_i}
     
     respond_to do |format|
       format.html # index.html.erb
