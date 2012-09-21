@@ -36,7 +36,7 @@ var chart;
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Frequency', (<%=escape_javascript @loc_array.map{|i, v| "'#{v}'"}.join(',')%>)],
+          ['Frequency', (<%= @loc_array.map{|i, v| "'#{escape_javascript v}'"}.join(',')%>)],
           
     <% @haxis_label.each_with_index do |label, index| %>
     <% ## ALL THIS LOGIC HAS TO BE MOVED IN THE CONTROLLER THAT SHIT IS CRAY %>
