@@ -36,7 +36,7 @@ var chart;
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Frequency', (<%=j @loc_array.map{|i, v| "'#{v}'"}.join(',')%>)],
+          ['Frequency', (<%=escape_javascript @loc_array.map{|i, v| "'#{v}'"}.join(',')%>)],
           
     <% @haxis_label.each_with_index do |label, index| %>
     <% ## ALL THIS LOGIC HAS TO BE MOVED IN THE CONTROLLER THAT SHIT IS CRAY %>
@@ -46,7 +46,7 @@ var chart;
         ]);
 
         var options = {
-          title: '<%=j @survey.question %>',
+          title: '<%=escape_javascript @survey.question %>',
           hAxis: {title: 'Rating', maxValue: <%= @survey.scale_size + 1 %>, gridlines: { color: "transparent" }},
 		      vAxis: {title: "%", format: "#", maxValue: 100, minValue: 0, fontSize: 0, gridlines: { color: "transparent" } }
 
