@@ -1,5 +1,10 @@
 <h1>Listing ratings for <%=link_to @survey.name, @survey%></h1>
 
+<% form_tag(survey_ratings_path(@survey), :method => :get) do %>
+  <%= select_tag "location", options_from_collection_for_select(@locations, "id", "name", params[:location]), :include_blank => 'All locations'%>
+  <%= submit_tag 'Filter' %>
+<% end %>
+
 <table>
   <tr>
     <th>Location</th>

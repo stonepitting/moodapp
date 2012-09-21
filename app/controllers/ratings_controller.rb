@@ -4,9 +4,10 @@ class RatingsController < ApplicationController
   # GET /ratings.xml
   def index
     @survey = Survey.find(params[:survey_id])
-    location_filter = params[:location] || nil
-
-    if location_filter
+    @locations = current_user.locations
+    location_filter = params[:location]
+    
+    if location_filter && !location_filter.empty?
       location_query = ["location_id = ?", location_filter]
       @location_filter = Location.find(location_filter)
     else
