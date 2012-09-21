@@ -21,7 +21,10 @@ Graph:
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
+      
+var chart;
+
+		google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -39,9 +42,24 @@ Graph:
 
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
         chart.draw(data, options);
-      }
+
+	   // Add our over/out handlers.
+	    google.visualization.events.addListener(chart, 'onmouseover', barMouseOver);
+	    google.visualization.events.addListener(chart, 'onmouseout', barMouseOut);
+	  }
+
+	  function barMouseOver(e) {
+		console.log(e)
+		return false;
+	    chart.setSelection([e]);
+	  }
+
+	  function barMouseOut(e) {
+	    chart.setSelection([{'row': null, 'column': null}]);
+	  }
+
     </script>
 
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
