@@ -1,10 +1,14 @@
 <h1>Listing ratings for <%=link_to @survey.name, @survey%></h1>
 
+<% if false 
+  # disabling filters for now
+  %>
 <% form_tag(survey_ratings_path(@survey), :method => :get) do %>
   <%= select_tag "location", options_from_collection_for_select(@locations, "id", "name", params[:location]), :include_blank => 'All locations'%>
   <%= submit_tag 'Filter' %>
 <% end %>
-
+<% end %>
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
 <table>
   <tr>
     <th>Location</th>
@@ -32,16 +36,11 @@ var chart;
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Frequency', 'Rating'],
+          ['Frequency', <%=@loc_array.map{|i, v| "'#{v}'"}.join(',')%>],
           
-<% if false %>
-		<% @scores.each_with_index do |rating, index| %>
-			<%= rating %>
-			<%= ',' unless index == @scores.length - 1 %>
-		<% end %>
-<% end %> 
     <% @haxis_label.each_with_index do |label, index| %>
-			<%="['#{label}',#{@scores[index]} ]" %>
+    <% ## ALL THIS LOGIC HAS TO BE MOVED IN THE CONTROLLER THAT SHIT IS CRAY %>
+      <%="['#{label}',#{@loc_array.map{|i, v| @loc_array_total[i] > 0 ? (@scores[index][v].to_f/@loc_array_total[i] * 100).round : 0}.join(',')} ]" %>
 			<%= ',' unless index == @scores.length - 1 %>
 		<% end %>
         ]);
@@ -73,4 +72,4 @@ var chart;
 
     </script>
 
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    
