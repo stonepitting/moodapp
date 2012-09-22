@@ -1,3 +1,5 @@
+require 'csv'
+
 class RatingsController < ApplicationController
   before_filter :authenticate_user!, :except => [:create]
   # GET /ratings
@@ -62,7 +64,10 @@ class RatingsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @ratings }
       format.json { render :json => @ratingsjson}
-    end
+       format.xlsx {
+         send_data Rating.to_xlsx.to_stream.read, :filename => 'ratings.xlsx', :type => "application/vnx.openxmlformates-officedocument.spreadsheetml.sheet"
+        }      
+     end
   end
 
   # GET /ratings/1
@@ -73,6 +78,7 @@ class RatingsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @rating }
+             
     end
   end
 

@@ -9,6 +9,8 @@
 <% end %>
 <% end %>
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
+<b><%= link_to 'Excel Export', survey_ratings_path(@survey, :format => :xlsx) %></b>
+
 <table>
   <tr>
     <th>Location</th>
@@ -25,7 +27,6 @@
 </table>
 <br />
 
-Graph:
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">

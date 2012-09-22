@@ -18,6 +18,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'newrelic_rpm'
+gem 'acts_as_xlsx'
 
 group :test do
   gem 'rspec'
