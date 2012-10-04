@@ -27,7 +27,7 @@
 <% @locations.each do |location| %>
   <tr>
     <td><%= link_to location.name, location %></td>
-    <td><%= location.enabled %></td>
+    <td class="td-<%= location.enabled %>"><%= location.enabled %></td>
     <td>
 		<% if location.survey %>
 			<%= location.survey.name %>

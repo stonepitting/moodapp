@@ -1,3 +1,4 @@
+<% if @location.enabled %>
 <h1><%=@survey.question%></h1>
 <div id="answers-div">
 	<% if @survey.scale_size == 2 %>
@@ -13,3 +14,6 @@
 		Sorry, an error occurred
 	<% end %>
 </div>
+<% else %>
+<div id="idle"><%=image_tag 'atlassian.png'%></div>
+<% end %>

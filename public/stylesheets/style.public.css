@@ -88,3 +88,5 @@ li a.vote-img:hover{border: 0; background: transparent}
 .color-0{background-color: #FF9500}
 
 #location-place{position: absolute; left: 10px; top: 10px; font-size: 16px; color: #444}
+
+#idle{padding-top: 100px}
