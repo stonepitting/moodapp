@@ -1,12 +1,22 @@
 <h1>Listing ratings for <%=link_to @survey.name, @survey%></h1>
 
+<% if false 
+  # disabling filters for now
+  %>
+<% form_tag(survey_ratings_path(@survey), :method => :get) do %>
+  <%= select_tag "location", options_from_collection_for_select(@locations, "id", "name", params[:location]), :include_blank => 'All locations'%>
+  <%= submit_tag 'Filter' %>
+<% end %>
+<% end %>
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+<b><%= link_to 'Excel Export', survey_ratings_path(@survey, :format => :xlsx) %></b>
+
 <table>
   <tr>
     <th>Location</th>
     <th>Value</th>
     <th>Date</th>
   </tr>
-
 <% @ratings.each do |rating| %>
   <tr>
     <td><%= rating.location.name %></td>
@@ -16,3 +26,51 @@
 <% end %>
 </table>
 <br />
+
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      
+var chart;
+
+		google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Frequency', <%= @loc_array.map{|i, v| "'#{escape_javascript v}'"}.join(',')%>],
+          
+    <% @haxis_label.each_with_index do |label, index| %>
+    <% ## ALL THIS LOGIC HAS TO BE MOVED IN THE CONTROLLER THAT SHIT IS CRAY %>
+      <%="['#{label}',#{@loc_array.map{|i, v| @loc_array_total[i] > 0 ? (@scores[index][v].to_f/@loc_array_total[i] * 100).round : 0}.join(',')} ]" %>
+			<%= ',' unless index == @scores.length - 1 %>
+		<% end %>
+        ]);
+
+        var options = {
+          title: '<%=escape_javascript @survey.question %>',
+          hAxis: {title: 'Rating', maxValue: <%= @survey.scale_size + 1 %>, gridlines: { color: "transparent" }},
+		      vAxis: {title: "%", format: "#", maxValue: 100, minValue: 0, fontSize: 0, gridlines: { color: "transparent" } }
+
+        };
+
+        chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+	   // Add our over/out handlers.
+	    google.visualization.events.addListener(chart, 'onmouseover', barMouseOver);
+	    google.visualization.events.addListener(chart, 'onmouseout', barMouseOut);
+	  }
+
+	  function barMouseOver(e) {
+		console.log(e)
+		return false;
+	    chart.setSelection([e]);
+	  }
+
+	  function barMouseOut(e) {
+	    chart.setSelection([{'row': null, 'column': null}]);
+	  }
+
+    </script>
+
+    
