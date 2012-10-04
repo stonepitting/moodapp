@@ -30,6 +30,13 @@ Moodapp::Application.routes.draw do
       get 'options'
     end
   end
+  
+  resources :stacks do
+    member do
+      post  'add_survey'
+      get   'remove_survey'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

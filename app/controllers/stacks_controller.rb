@@ -15,8 +15,7 @@ class StacksController < ApplicationController
   def show
     @stack = Stack.find(params[:id])
     @stack_surveys = @stack.surveys
-    @surveys = Survey.all(:conditions => ['id not in (?)', @stack_surveys.map(&:id).join(',')])
-
+    @surveys = Survey.all(:conditions => ['id not in (?)', @stack_surveys.map(&:id)])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @stack }
@@ -69,6 +68,25 @@ class StacksController < ApplicationController
       end
     end
   end
+  
+  def add_survey
+    @stack = Stack.find(params[:id])
+    
+    @survey = Survey.find(params[:survey_id])
+    
+    @stack.surveys << @survey
+    
+    redirect_to @stack
+  end
+  
+  def remove_survey
+    @stack = Stack.find(params[:id])
+    @survey = Survey.find(params[:survey_id])
+    @stack.surveys.delete(@survey)
+    
+    redirect_to @stack
+  end
+  
 
   # DELETE /stacks/1
   # DELETE /stacks/1.xml
