@@ -1,12 +1,5 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= @stack.name %></h1>
 <p>
-  <b>Name:</b>
-  <%= @stack.name %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%= @stack.description %>
 </p>
 
@@ -17,11 +10,13 @@
   <% end %>
 <% end %>
 
-<h3>Surveys of the stacks</h3>
+<h2>Surveys of the stacks</h2>
 <% if @stack_surveys %>
+  <ul class="stack_list">
   <% @stack_surveys.each do |s| %>
-    <%=link_to s.name, s%> - <%= link_to 'Remove', "/stacks/#{@stack.id}/remove_survey?survey_id=#{s.id}" , :confirm => 'Are you sure?' %><br />
+    <li>&bull; <%=link_to s.name, s%> - <%= link_to 'Remove', "/stacks/#{@stack.id}/remove_survey?survey_id=#{s.id}" , :confirm => 'Are you sure?' %><br /></li>
   <% end %>
+  </ul>
 <% else %>
   You don't have any survey in this stack yet.
 <% end %>
