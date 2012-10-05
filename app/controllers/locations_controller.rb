@@ -39,7 +39,7 @@ class LocationsController < ApplicationController
   
   def options
     
-    r =  Random.rand(7)
+    r =  Random.rand(5)
     @easter_egg = false
     if r == 0
       name = ['Eli', 'Courtney', 'Verity']
