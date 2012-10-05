@@ -51,6 +51,9 @@ class LocationsController < ApplicationController
       @phrase = "Yo " + name_word + state_word + signature_word
       @easter_egg = true
     end 
+    if r = 1
+      @phrase = "Is Tony tryin' to take my spot? WTF"
+    end
     @location = Location.find(params[:id])
     @survey = @location.survey
     respond_to do |format|
