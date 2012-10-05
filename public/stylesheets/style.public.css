@@ -89,4 +89,6 @@ li a.vote-img:hover{border: 0; background: transparent}
 
 #location-place{position: absolute; left: 10px; top: 10px; font-size: 16px; color: #444}
 
-#idle{padding-top: 100px}
+#idle{padding-top: 100px; position: relative}
+#quote{position: absolute; top: 20px; left: 50%; width: 330px;}
+#quote p{text-align: left; padding: 0 10px 5px 10px; line-height: 1.2em}

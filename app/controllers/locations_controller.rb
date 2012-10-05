@@ -38,6 +38,19 @@ class LocationsController < ApplicationController
   end
   
   def options
+    
+    r =  Random.rand(7)
+    @easter_egg = false
+    if r == 0
+      name = ['Eli', 'Courtney', 'Verity']
+      state = [', you rock.', ', you\'re the bomb.', ', you got Swag.', ', I love you.', ', I owe you.']
+      signature = [' True story.', ' Ain\'t lyin\'.', ' <3', ' xoxo']
+      name_word = name[Random.rand(name.size)]
+      state_word = state[Random.rand(state.size)]
+      signature_word = signature[Random.rand(signature.size)]
+      @phrase = "Yo " + name_word + state_word + signature_word
+      @easter_egg = true
+    end 
     @location = Location.find(params[:id])
     @survey = @location.survey
     respond_to do |format|
@@ -62,8 +75,6 @@ class LocationsController < ApplicationController
       end
       @total += r.rating_count.to_i
     end
-    puts @total
-    puts @ratings
     if request.xhr?
       render :partial => 'stats_ajax'
     else

@@ -15,5 +15,14 @@
 	<% end %>
 </div>
 <% else %>
-<div id="idle"><%=image_tag 'atlassian.png'%></div>
+<div id="idle">
+  <%=image_tag 'atlassian.png'%>
+  <% if @easter_egg %>
+  <div id="quote">
+    <p><%=@phrase%></p>
+    <%=image_tag 'phrase-bg.png' %>
+  </div>
+  <% end %>
+  
+</div>
 <% end %>
