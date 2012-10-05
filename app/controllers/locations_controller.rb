@@ -39,10 +39,12 @@ class LocationsController < ApplicationController
   
   def options
     
-    r =  Random.rand(5)
+    r =  Random.rand(8).to_i
+    puts '=============='
+    puts r
     @easter_egg = false
-    if r == 0
-      name = ['Eli', 'Courtney', 'Verity', 'Tony G. E.']
+    if r == 0 || r == 2
+      name = ['Eli', 'Courtney', 'Verity']
       state = [', you rock.', ', you\'re the bomb.', ', you got Swag.', ', I love you.', ', I owe you.']
       signature = [' True story.', ' Ain\'t lyin\'.', ' <3', ' xoxo']
       name_word = name[Random.rand(name.size)]
@@ -50,9 +52,11 @@ class LocationsController < ApplicationController
       signature_word = signature[Random.rand(signature.size)]
       @phrase = "Yo " + name_word + state_word + signature_word
       @easter_egg = true
-    end 
-    if r = 1
-      @phrase = "Is Tony tryin' to take my spot? WTF"
+    end
+    if r == 1
+      phrase = ["Is Tony tryin' to take my spot? WTF", "No one loves you like me Tony...", "Who's that Tony guy anyway?"]
+      @phrase = phrase[Random.rand(phrase.size)]
+      @easter_egg = true
     end
     @location = Location.find(params[:id])
     @survey = @location.survey
