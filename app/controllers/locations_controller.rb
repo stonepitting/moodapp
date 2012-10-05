@@ -42,7 +42,7 @@ class LocationsController < ApplicationController
     r =  Random.rand(5)
     @easter_egg = false
     if r == 0
-      name = ['Eli', 'Courtney', 'Verity']
+      name = ['Eli', 'Courtney', 'Verity', 'Tony G. E.']
       state = [', you rock.', ', you\'re the bomb.', ', you got Swag.', ', I love you.', ', I owe you.']
       signature = [' True story.', ' Ain\'t lyin\'.', ' <3', ' xoxo']
       name_word = name[Random.rand(name.size)]
