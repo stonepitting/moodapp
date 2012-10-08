@@ -54,7 +54,7 @@ class LocationsController < ApplicationController
       @easter_egg = true
     end
     if r == 1
-      phrase = ["Is Tony tryin' to take my spot? WTF", "No one loves you like me Tony...", "Who's that Tony guy anyway?"]
+      phrase = ["I've been a bit lonely this w-e...", "Happy Monday folks!"]
       @phrase = phrase[Random.rand(phrase.size)]
       @easter_egg = true
     end
