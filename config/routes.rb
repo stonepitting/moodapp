@@ -1,4 +1,6 @@
 Moodapp::Application.routes.draw do
+  resources :answers
+  
   resources :stacks
 
   resources :ratings
