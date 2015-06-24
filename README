@@ -5,3 +5,5 @@ TODO
 * Get the stats calculation from the ratings, not the votes table
 
 - Create the migration to have size_type and image_type
+
+test
